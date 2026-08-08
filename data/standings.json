@@ -1,12 +1,13 @@
 {
   "season": "2026/27",
-  "source": "football-data.org",
-  "lastUpdated": null,
-  "currentMatchday": 1,
+  "source": "Official Premier League pre-season reset",
+  "lastUpdated": "2026-08-08T00:00:00Z",
+  "currentMatchday": 0,
+  "preSeason": true,
   "standings": [
     {
       "position": 1,
-      "team": "Arsenal FC",
+      "team": "Arsenal",
       "played": 0,
       "won": 0,
       "drawn": 0,
@@ -18,7 +19,7 @@
     },
     {
       "position": 2,
-      "team": "Coventry City FC",
+      "team": "Aston Villa",
       "played": 0,
       "won": 0,
       "drawn": 0,
@@ -30,7 +31,7 @@
     },
     {
       "position": 3,
-      "team": "Hull City AFC",
+      "team": "Bournemouth",
       "played": 0,
       "won": 0,
       "drawn": 0,
@@ -42,7 +43,7 @@
     },
     {
       "position": 4,
-      "team": "Manchester United FC",
+      "team": "Brentford",
       "played": 0,
       "won": 0,
       "drawn": 0,
@@ -54,7 +55,7 @@
     },
     {
       "position": 5,
-      "team": "Ipswich Town FC",
+      "team": "Brighton",
       "played": 0,
       "won": 0,
       "drawn": 0,
@@ -66,7 +67,7 @@
     },
     {
       "position": 6,
-      "team": "Sunderland AFC",
+      "team": "Chelsea",
       "played": 0,
       "won": 0,
       "drawn": 0,
@@ -78,7 +79,7 @@
     },
     {
       "position": 7,
-      "team": "Nottingham Forest FC",
+      "team": "Coventry",
       "played": 0,
       "won": 0,
       "drawn": 0,
@@ -90,7 +91,7 @@
     },
     {
       "position": 8,
-      "team": "Leeds United FC",
+      "team": "Crystal Palace",
       "played": 0,
       "won": 0,
       "drawn": 0,
@@ -102,7 +103,7 @@
     },
     {
       "position": 9,
-      "team": "Everton FC",
+      "team": "Everton",
       "played": 0,
       "won": 0,
       "drawn": 0,
@@ -114,7 +115,7 @@
     },
     {
       "position": 10,
-      "team": "Crystal Palace FC",
+      "team": "Fulham",
       "played": 0,
       "won": 0,
       "drawn": 0,
@@ -126,7 +127,7 @@
     },
     {
       "position": 11,
-      "team": "Brentford FC",
+      "team": "Hull",
       "played": 0,
       "won": 0,
       "drawn": 0,
@@ -138,7 +139,7 @@
     },
     {
       "position": 12,
-      "team": "Tottenham Hotspur FC",
+      "team": "Ipswich",
       "played": 0,
       "won": 0,
       "drawn": 0,
@@ -150,7 +151,7 @@
     },
     {
       "position": 13,
-      "team": "Manchester City FC",
+      "team": "Leeds",
       "played": 0,
       "won": 0,
       "drawn": 0,
@@ -162,7 +163,7 @@
     },
     {
       "position": 14,
-      "team": "AFC Bournemouth",
+      "team": "Liverpool",
       "played": 0,
       "won": 0,
       "drawn": 0,
@@ -174,7 +175,7 @@
     },
     {
       "position": 15,
-      "team": "Brighton & Hove Albion FC",
+      "team": "Man City",
       "played": 0,
       "won": 0,
       "drawn": 0,
@@ -186,7 +187,7 @@
     },
     {
       "position": 16,
-      "team": "Aston Villa FC",
+      "team": "Man Utd",
       "played": 0,
       "won": 0,
       "drawn": 0,
@@ -198,7 +199,7 @@
     },
     {
       "position": 17,
-      "team": "Newcastle United FC",
+      "team": "Newcastle",
       "played": 0,
       "won": 0,
       "drawn": 0,
@@ -210,7 +211,7 @@
     },
     {
       "position": 18,
-      "team": "Liverpool FC",
+      "team": "Nott'm Forest",
       "played": 0,
       "won": 0,
       "drawn": 0,
@@ -222,7 +223,7 @@
     },
     {
       "position": 19,
-      "team": "Fulham FC",
+      "team": "Sunderland",
       "played": 0,
       "won": 0,
       "drawn": 0,
@@ -234,7 +235,7 @@
     },
     {
       "position": 20,
-      "team": "Chelsea FC",
+      "team": "Spurs",
       "played": 0,
       "won": 0,
       "drawn": 0,

@@ -1,6 +1,7 @@
 {
   "competition": "The JIGSAW Premier League Prediction Challenge",
   "season": "2026/27",
+  "locked": true,
   "players": {
     "Gary": [
       {
