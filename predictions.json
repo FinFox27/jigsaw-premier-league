@@ -1,0 +1,334 @@
+{
+  "competition": "The JIGSAW Premier League Prediction Challenge",
+  "season": "2026/27",
+  "players": {
+    "Gary": [
+      {
+        "team": "Arsenal",
+        "position": 1
+      },
+      {
+        "team": "Man City",
+        "position": 2
+      },
+      {
+        "team": "Chelsea",
+        "position": 3
+      },
+      {
+        "team": "Man Utd",
+        "position": 4
+      },
+      {
+        "team": "Spurs",
+        "position": 5
+      },
+      {
+        "team": "Liverpool",
+        "position": 6
+      },
+      {
+        "team": "Aston Villa",
+        "position": 7
+      },
+      {
+        "team": "Brentford",
+        "position": 8
+      },
+      {
+        "team": "Everton",
+        "position": 9
+      },
+      {
+        "team": "Nott'm Forest",
+        "position": 10
+      },
+      {
+        "team": "Brighton",
+        "position": 11
+      },
+      {
+        "team": "Crystal Palace",
+        "position": 12
+      },
+      {
+        "team": "Bournemouth",
+        "position": 13
+      },
+      {
+        "team": "Fulham",
+        "position": 14
+      },
+      {
+        "team": "Leeds",
+        "position": 15
+      },
+      {
+        "team": "Newcastle",
+        "position": 16
+      },
+      {
+        "team": "Sunderland",
+        "position": 17
+      },
+      {
+        "team": "Coventry",
+        "position": 18
+      },
+      {
+        "team": "Ipswich",
+        "position": 19
+      },
+      {
+        "team": "Hull",
+        "position": 20
+      }
+    ],
+    "Jimmy": [
+      {
+        "team": "Spurs",
+        "position": 1
+      },
+      {
+        "team": "Arsenal",
+        "position": 2
+      },
+      {
+        "team": "Man Utd",
+        "position": 3
+      },
+      {
+        "team": "Man City",
+        "position": 4
+      },
+      {
+        "team": "Liverpool",
+        "position": 5
+      },
+      {
+        "team": "Chelsea",
+        "position": 6
+      },
+      {
+        "team": "Brighton",
+        "position": 7
+      },
+      {
+        "team": "Fulham",
+        "position": 8
+      },
+      {
+        "team": "Aston Villa",
+        "position": 9
+      },
+      {
+        "team": "Nott'm Forest",
+        "position": 10
+      },
+      {
+        "team": "Leeds",
+        "position": 11
+      },
+      {
+        "team": "Bournemouth",
+        "position": 12
+      },
+      {
+        "team": "Everton",
+        "position": 13
+      },
+      {
+        "team": "Brentford",
+        "position": 14
+      },
+      {
+        "team": "Coventry",
+        "position": 15
+      },
+      {
+        "team": "Crystal Palace",
+        "position": 16
+      },
+      {
+        "team": "Newcastle",
+        "position": 17
+      },
+      {
+        "team": "Sunderland",
+        "position": 18
+      },
+      {
+        "team": "Ipswich",
+        "position": 19
+      },
+      {
+        "team": "Hull",
+        "position": 20
+      }
+    ],
+    "Willie": [
+      {
+        "team": "Liverpool",
+        "position": 1
+      },
+      {
+        "team": "Arsenal",
+        "position": 2
+      },
+      {
+        "team": "Man City",
+        "position": 3
+      },
+      {
+        "team": "Chelsea",
+        "position": 4
+      },
+      {
+        "team": "Spurs",
+        "position": 5
+      },
+      {
+        "team": "Man Utd",
+        "position": 6
+      },
+      {
+        "team": "Aston Villa",
+        "position": 7
+      },
+      {
+        "team": "Nott'm Forest",
+        "position": 8
+      },
+      {
+        "team": "Leeds",
+        "position": 9
+      },
+      {
+        "team": "Sunderland",
+        "position": 10
+      },
+      {
+        "team": "Brentford",
+        "position": 11
+      },
+      {
+        "team": "Brighton",
+        "position": 12
+      },
+      {
+        "team": "Bournemouth",
+        "position": 13
+      },
+      {
+        "team": "Newcastle",
+        "position": 14
+      },
+      {
+        "team": "Crystal Palace",
+        "position": 15
+      },
+      {
+        "team": "Fulham",
+        "position": 16
+      },
+      {
+        "team": "Everton",
+        "position": 17
+      },
+      {
+        "team": "Coventry",
+        "position": 18
+      },
+      {
+        "team": "Ipswich",
+        "position": 19
+      },
+      {
+        "team": "Hull",
+        "position": 20
+      }
+    ],
+    "Steve": [
+      {
+        "team": "Arsenal",
+        "position": 1
+      },
+      {
+        "team": "Man City",
+        "position": 2
+      },
+      {
+        "team": "Chelsea",
+        "position": 3
+      },
+      {
+        "team": "Liverpool",
+        "position": 4
+      },
+      {
+        "team": "Man Utd",
+        "position": 5
+      },
+      {
+        "team": "Aston Villa",
+        "position": 6
+      },
+      {
+        "team": "Spurs",
+        "position": 7
+      },
+      {
+        "team": "Bournemouth",
+        "position": 8
+      },
+      {
+        "team": "Brentford",
+        "position": 9
+      },
+      {
+        "team": "Brighton",
+        "position": 10
+      },
+      {
+        "team": "Everton",
+        "position": 11
+      },
+      {
+        "team": "Newcastle",
+        "position": 12
+      },
+      {
+        "team": "Fulham",
+        "position": 13
+      },
+      {
+        "team": "Sunderland",
+        "position": 14
+      },
+      {
+        "team": "Crystal Palace",
+        "position": 15
+      },
+      {
+        "team": "Nott'm Forest",
+        "position": 16
+      },
+      {
+        "team": "Coventry",
+        "position": 17
+      },
+      {
+        "team": "Leeds",
+        "position": 18
+      },
+      {
+        "team": "Ipswich",
+        "position": 19
+      },
+      {
+        "team": "Hull",
+        "position": 20
+      }
+    ]
+  }
+}

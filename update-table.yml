@@ -1,0 +1,66 @@
+name: Update Premier League table
+
+on:
+  schedule:
+    # Runs several times on matchdays and once daily otherwise.
+    - cron: "15 */3 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Fetch current 2026/27 Premier League standings
+        env:
+          FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
+        run: |
+          python - <<'PY'
+          import json, os, urllib.request
+          token = os.environ["FOOTBALL_DATA_TOKEN"]
+          url = "https://api.football-data.org/v4/competitions/PL/standings?season=2026"
+          req = urllib.request.Request(url, headers={"X-Auth-Token": token})
+          with urllib.request.urlopen(req, timeout=30) as response:
+              payload = json.load(response)
+
+          total = next(s for s in payload["standings"] if s["type"] == "TOTAL")
+          rows = []
+          for x in total["table"]:
+              t = x["team"]
+              rows.append({
+                  "position": x["position"],
+                  "team": t["name"],
+                  "played": x["playedGames"],
+                  "won": x["won"],
+                  "drawn": x["draw"],
+                  "lost": x["lost"],
+                  "goalsFor": x["goalsFor"],
+                  "goalsAgainst": x["goalsAgainst"],
+                  "goalDifference": x["goalDifference"],
+                  "points": x["points"]
+              })
+
+          output = {
+              "season": "2026/27",
+              "source": "football-data.org",
+              "lastUpdated": payload.get("lastUpdated"),
+              "currentMatchday": payload.get("season", {}).get("currentMatchday", 0),
+              "standings": rows
+          }
+
+          with open("data/standings.json", "w", encoding="utf-8") as f:
+              json.dump(output, f, indent=2)
+          PY
+
+      - name: Commit updated table
+        run: |
+          git config user.name "JIGSAW table updater"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/standings.json
+          git diff --cached --quiet || git commit -m "Update Premier League table"
+          git push
