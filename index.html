@@ -1,57 +1,54 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#07111f">
-  <title>JIGSAW | Premier League Prediction Challenge</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07111f">
+<meta name="description" content="The JIGSAW Premier League Prediction Challenge — 2026/27">
+<title>JIGSAW | Premier League Prediction Challenge</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="background"></div>
-  <header class="site-header">
-    <div class="brand">
-      <div class="brand-mark">J</div>
-      <div>
-        <div class="brand-name">JIGSAW</div>
-        <div class="brand-sub">Premier League Prediction Challenge</div>
-      </div>
+<div class="background"></div>
+<header class="site-header">
+  <a class="brand" href="#" aria-label="JIGSAW home">
+    <div class="brand-mark">J</div>
+    <div>
+      <div class="brand-name">JIGSAW</div>
+      <div class="brand-sub">Premier League Prediction Challenge</div>
     </div>
-    <div class="season-pill">2026/27</div>
-  </header>
+  </a>
+  <div class="season-pill">2026/27</div>
+</header>
 
-  <main class="container">
-    <section class="hero">
-      <div>
-        <div class="eyebrow">LIVE COMPETITION</div>
-        <h1>Who saw it coming?</h1>
-        <p>Every position matters. The lower the score, the better the prediction.</p>
-      </div>
-      <div class="live-card">
-        <span class="live-dot"></span>
-        <div>
-          <strong id="statusText">Live table</strong>
-          <small id="updatedText">Loading…</small>
-        </div>
-      </div>
-    </section>
+<main class="container">
+  <section class="hero">
+    <div>
+      <div class="eyebrow"><span class="pulse"></span> LIVE COMPETITION</div>
+      <h1>Who saw it coming?</h1>
+      <p>Predict all 20 positions. The closer you are, the lower your score.</p>
+    </div>
+    <div class="status-card">
+      <div class="status-icon">●</div>
+      <div><strong id="statusText">Live table</strong><small id="updatedText">Loading…</small></div>
+    </div>
+  </section>
 
-    <nav class="tabs" aria-label="Main navigation">
-      <button class="tab active" data-view="overview">Leaderboard</button>
-      <button class="tab" data-view="table">Premier League</button>
-      <button class="tab" data-view="players">Predictions</button>
-    </nav>
+  <nav class="tabs" aria-label="Main navigation">
+    <button class="tab active" data-view="leaderboard">Leaderboard</button>
+    <button class="tab" data-view="table">Premier League</button>
+    <button class="tab" data-view="predictions">Predictions</button>
+  </nav>
 
-    <section id="overview" class="view active"></section>
-    <section id="table" class="view"></section>
-    <section id="players" class="view"></section>
+  <section id="leaderboard" class="view active"></section>
+  <section id="table" class="view"></section>
+  <section id="predictions" class="view"></section>
 
-    <footer>
-      <div><strong>JIGSAW</strong> · 2026/27</div>
-      <div>Scores are provisional until the final league positions are confirmed.</div>
-    </footer>
-  </main>
-
-  <script src="script.js"></script>
+  <footer>
+    <div><strong>JIGSAW</strong> · 2026/27</div>
+    <div>Provisional until the final league positions are confirmed.</div>
+  </footer>
+</main>
+<script src="script.js"></script>
 </body>
 </html>

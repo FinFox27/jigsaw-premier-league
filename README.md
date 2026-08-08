@@ -1,42 +1,48 @@
 # The JIGSAW Premier League Prediction Challenge
 
-A free, mobile-friendly website for the 2026/27 prediction competition.
+A free, mobile-friendly website for the 2026/27 competition.
 
-## What is included
+## Scoring
 
-- Four locked prediction sets taken from the supplied Excel workbook: Gary, Jimmy, Willie and Steve.
-- Live/provisional scoring using the current Premier League position.
-- Premier League table.
-- Individual prediction breakdown.
-- Automatic table-update workflow for GitHub Actions.
-- Designed for free GitHub Pages hosting.
+For each of the 20 clubs:
 
-## Scoring rule
+`penalty points = absolute(actual position - predicted position)`
 
-For each club:
+A player's total is the sum of all 20 club penalties. Lower is better.
 
-`points = ABS(actual_position - predicted_position)`
+## Data integrity
 
-A player's score is the sum across all 20 clubs.
+- The four prediction sets are imported from the supplied Excel workbook.
+- Predictions are locked in the website data.
+- The 2026/27 pre-season table uses the official Premier League alphabetical reset order.
+- Once clubs have played competitive matches, the automatic updater uses football-data.org's current standings.
+- The updater validates that exactly 20 expected clubs are returned before replacing the table.
+- If the table has not changed, no unnecessary history snapshot is created.
+- Up to 120 distinct table snapshots are retained.
 
-Lower score is better.
+## GitHub Pages
 
-## Current starting point
+Publish the repository from the `main` branch and root (`/(root)`).
 
-The Premier League officially reset the 2026/27 table before the season. With no fixtures played, the table is alphabetical and all clubs have 0 points. The supplied Excel workbook uses this same starting order.
+## Secret
 
-## Setup
+Create a repository Actions secret named:
 
-See `SETUP-GUIDE.md`.
+`FOOTBALL_DATA_TOKEN`
 
-## Data
+Never place the token in public files.
 
-`data/predictions.json` contains the locked predictions.
+## Automatic updater
 
-`data/standings.json` contains the current actual table used by the website.
+The workflow runs every three hours and can also be run manually from GitHub Actions.
 
-Once the GitHub Action is configured, `data/standings.json` is refreshed automatically from football-data.org.
+## Files
 
-## Important
-
-Do not put your football-data.org API token into `script.js` or any public file. It belongs in GitHub repository Secrets as `FOOTBALL_DATA_TOKEN`.
+- `index.html` — site structure
+- `style.css` — design
+- `script.js` — scoring and display logic
+- `data/predictions.json` — locked predictions
+- `data/standings.json` — current table
+- `data/history.json` — previous distinct table states
+- `data/config.json` — season and canonical club order
+- `.github/workflows/update-table.yml` — automatic updater
