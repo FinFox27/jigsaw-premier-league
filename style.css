@@ -29,3 +29,21 @@ h1{font-size:clamp(36px,5.4vw,64px);line-height:.96;letter-spacing:-.055em;margi
 footer{display:flex;justify-content:space-between;gap:20px;color:#6e7d92;font-size:11px;padding-top:32px}
 @media(max-width:900px){.dashboard-grid{grid-template-columns:1fr}.hero{align-items:flex-start;flex-direction:column}.status-card{width:100%}}
 @media(max-width:650px){.insight-grid{grid-template-columns:1fr}.rank-row{grid-template-columns:30px 1fr 65px 55px}.hero-stat{grid-template-columns:1fr}.site-header{padding:18px 16px 5px}.container{padding:22px 16px 45px}.brand-sub{max-width:190px}.tabs{width:100%;overflow:auto}.tab{white-space:nowrap;flex:1}.leader-score{font-size:51px}.detail-card{align-items:flex-start;flex-direction:column}footer{flex-direction:column}}
+
+/* JIGSAW Version 4 */
+.race-grid{display:grid;grid-template-columns:1.45fr 1fr;gap:12px}
+.race-card{padding:20px}.race-card h3{margin:0;font-size:15px}.race-card p{margin:5px 0 0;color:var(--muted);font-size:12px}
+.form-table{margin-top:16px}.form-row{display:grid;grid-template-columns:34px 1fr 90px 100px;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.form-row:last-child{border-bottom:0}.form-rank{font-weight:950;color:var(--muted)}.form-name{font-weight:900}
+.race-empty{padding:28px;text-align:center;border:1px dashed var(--line);border-radius:16px;color:var(--muted);font-size:12px}
+.race-empty strong{display:block;color:var(--text);font-size:14px;margin-bottom:6px}
+.story-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
+.story{padding:18px}.story-kicker{font-size:10px;color:var(--muted);font-weight:950;text-transform:uppercase;letter-spacing:.12em}
+.story-title{font-size:19px;font-weight:950;margin-top:7px}.story-copy{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.5}
+.banter{padding:20px;margin-top:12px;background:linear-gradient(135deg,rgba(85,226,160,.07),rgba(105,168,255,.05))}
+.banter h3{margin:0;font-size:16px}.banter p{margin:6px 0 0;color:var(--muted);font-size:12px;line-height:1.5}
+.chart-wrap{height:250px;margin:18px 0 8px}.chart{width:100%;height:100%;display:block}
+.race-legend{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}.legend-item{font-size:10px;font-weight:900}
+.legend-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
+@media(max-width:850px){.race-grid{grid-template-columns:1fr}.story-grid{grid-template-columns:1fr}}
+@media(max-width:520px){.form-row{grid-template-columns:28px 1fr 65px 70px}.race-card{padding:16px}.chart-wrap{height:210px}}

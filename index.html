@@ -1,10 +1,8 @@
 <!doctype html>
 <html lang="en-GB">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#07111f">
-<meta name="description" content="The JIGSAW Premier League Prediction Challenge — 2026/27">
 <title>JIGSAW | Premier League Prediction Challenge</title>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -15,37 +13,31 @@
     <div class="brand-mark">J</div>
     <div><div class="brand-name">JIGSAW</div><div class="brand-sub">Premier League Prediction Challenge</div></div>
   </a>
-  <div class="season-pill">2026/27</div>
+  <div class="season-pill" id="seasonPill">2026/27</div>
 </header>
-
 <main class="container">
   <section class="hero">
     <div>
-      <div class="eyebrow"><span class="pulse"></span> <span id="competitionStatus">LIVE COMPETITION</span></div>
-      <h1>Who saw it coming?</h1>
-      <p>Twenty clubs. Four predictions. One JIGSAW champion.</p>
+      <div class="eyebrow"><span class="pulse"></span><span id="competitionStatus">PRE-SEASON</span></div>
+      <h1>Predict. Compete. Prevail.</h1>
+      <p id="heroSub">The JIGSAW Premier League Prediction Challenge.</p>
     </div>
-    <div class="status-card">
-      <div class="status-icon">●</div>
-      <div><strong id="statusText">Live table</strong><small id="updatedText">Loading…</small></div>
+    <div class="status-card"><div class="status-icon">●</div>
+      <div><strong id="statusText">Pre-season table</strong><small id="updatedText">Loading…</small></div>
     </div>
   </section>
-
   <nav class="tabs" aria-label="Main navigation">
     <button class="tab active" data-view="dashboard">Dashboard</button>
+    <button class="tab" data-view="race">Season Race</button>
     <button class="tab" data-view="table">Premier League</button>
     <button class="tab" data-view="predictions">Predictions</button>
   </nav>
-
   <section id="dashboard" class="view active"></section>
+  <section id="race" class="view"></section>
   <section id="table" class="view"></section>
   <section id="predictions" class="view"></section>
-
-  <footer>
-    <div><strong>JIGSAW</strong> · 2026/27</div>
-    <div>Scores are provisional until the final league positions are confirmed.</div>
-  </footer>
+  <footer><div><strong>JIGSAW</strong> · <span id="footerSeason">2026/27</span></div>
+  <div>Scores are provisional until the final league positions are confirmed.</div></footer>
 </main>
 <script src="script.js"></script>
-</body>
-</html>
+</body></html>
