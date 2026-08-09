@@ -13,10 +13,7 @@
 <header class="site-header">
   <a class="brand" href="#" aria-label="JIGSAW home">
     <div class="brand-mark">J</div>
-    <div>
-      <div class="brand-name">JIGSAW</div>
-      <div class="brand-sub">Premier League Prediction Challenge</div>
-    </div>
+    <div><div class="brand-name">JIGSAW</div><div class="brand-sub">Premier League Prediction Challenge</div></div>
   </a>
   <div class="season-pill">2026/27</div>
 </header>
@@ -24,9 +21,9 @@
 <main class="container">
   <section class="hero">
     <div>
-      <div class="eyebrow"><span class="pulse"></span> LIVE COMPETITION</div>
+      <div class="eyebrow"><span class="pulse"></span> <span id="competitionStatus">LIVE COMPETITION</span></div>
       <h1>Who saw it coming?</h1>
-      <p>Predict all 20 positions. The closer you are, the lower your score.</p>
+      <p>Twenty clubs. Four predictions. One JIGSAW champion.</p>
     </div>
     <div class="status-card">
       <div class="status-icon">●</div>
@@ -35,18 +32,18 @@
   </section>
 
   <nav class="tabs" aria-label="Main navigation">
-    <button class="tab active" data-view="leaderboard">Leaderboard</button>
+    <button class="tab active" data-view="dashboard">Dashboard</button>
     <button class="tab" data-view="table">Premier League</button>
     <button class="tab" data-view="predictions">Predictions</button>
   </nav>
 
-  <section id="leaderboard" class="view active"></section>
+  <section id="dashboard" class="view active"></section>
   <section id="table" class="view"></section>
   <section id="predictions" class="view"></section>
 
   <footer>
     <div><strong>JIGSAW</strong> · 2026/27</div>
-    <div>Provisional until the final league positions are confirmed.</div>
+    <div>Scores are provisional until the final league positions are confirmed.</div>
   </footer>
 </main>
 <script src="script.js"></script>

@@ -1,134 +1,48 @@
-const APP = {players:{},standings:[],history:[],season:"2026/27",preSeason:false,updated:null,matchday:0};
-
-const CLUBS = {
-  "Arsenal":"Arsenal","Aston Villa":"Aston Villa","Bournemouth":"Bournemouth","Brentford":"Brentford",
-  "Brighton":"Brighton","Chelsea":"Chelsea","Coventry":"Coventry City","Crystal Palace":"Crystal Palace",
-  "Everton":"Everton","Fulham":"Fulham","Hull":"Hull City","Ipswich":"Ipswich Town","Leeds":"Leeds United",
-  "Liverpool":"Liverpool","Man City":"Manchester City","Man Utd":"Manchester United","Newcastle":"Newcastle United",
-  "Nott'm Forest":"Nottingham Forest","Sunderland":"Sunderland","Spurs":"Tottenham Hotspur"
-};
-const ALIASES = {
-  "arsenal fc":"Arsenal","arsenal":"Arsenal","aston villa fc":"Aston Villa","aston villa":"Aston Villa",
-  "afc bournemouth":"Bournemouth","bournemouth":"Bournemouth","bournemouth fc":"Bournemouth",
-  "brentford fc":"Brentford","brentford":"Brentford","brighton & hove albion":"Brighton","brighton and hove albion":"Brighton",
-  "brighton":"Brighton","brighton & hove albion fc":"Brighton","chelsea fc":"Chelsea","chelsea":"Chelsea",
-  "coventry city fc":"Coventry","coventry city":"Coventry","coventry":"Coventry",
-  "crystal palace fc":"Crystal Palace","crystal palace":"Crystal Palace","everton fc":"Everton","everton":"Everton",
-  "fulham fc":"Fulham","fulham":"Fulham","hull city afc":"Hull","hull city":"Hull","hull":"Hull",
-  "ipswich town fc":"Ipswich","ipswich town":"Ipswich","ipswich":"Ipswich","leeds united fc":"Leeds","leeds united":"Leeds","leeds":"Leeds",
-  "liverpool fc":"Liverpool","liverpool":"Liverpool","manchester city fc":"Man City","manchester city":"Man City","man city":"Man City",
-  "manchester united fc":"Man Utd","manchester united":"Man Utd","man utd":"Man Utd",
-  "newcastle united fc":"Newcastle","newcastle united":"Newcastle","newcastle":"Newcastle",
-  "nottingham forest fc":"Nott'm Forest","nottingham forest":"Nott'm Forest","nott'm forest":"Nott'm Forest",
-  "sunderland afc":"Sunderland","sunderland":"Sunderland","tottenham hotspur fc":"Spurs","tottenham hotspur":"Spurs","tottenham":"Spurs","spurs":"Spurs"
-};
-
-function norm(name){
-  let s=String(name).toLowerCase().replace(/\s+/g," ").trim();
-  return ALIASES[s] || s;
+const APP={players:{},standings:[],history:[],season:"2026/27",preSeason:false,updated:null,matchday:0};
+const CLUBS={"Arsenal":"Arsenal","Aston Villa":"Aston Villa","Bournemouth":"Bournemouth","Brentford":"Brentford","Brighton":"Brighton","Chelsea":"Chelsea","Coventry":"Coventry City","Crystal Palace":"Crystal Palace","Everton":"Everton","Fulham":"Fulham","Hull":"Hull City","Ipswich":"Ipswich Town","Leeds":"Leeds United","Liverpool":"Liverpool","Man City":"Manchester City","Man Utd":"Manchester United","Newcastle":"Newcastle United","Nott'm Forest":"Nottingham Forest","Sunderland":"Sunderland","Spurs":"Tottenham Hotspur"};
+const ALIASES={"arsenal fc":"Arsenal","arsenal":"Arsenal","aston villa fc":"Aston Villa","aston villa":"Aston Villa","afc bournemouth":"Bournemouth","bournemouth":"Bournemouth","bournemouth fc":"Bournemouth","brentford fc":"Brentford","brentford":"Brentford","brighton & hove albion":"Brighton","brighton and hove albion":"Brighton","brighton":"Brighton","brighton & hove albion fc":"Brighton","chelsea fc":"Chelsea","chelsea":"Chelsea","coventry city fc":"Coventry","coventry city":"Coventry","coventry":"Coventry","crystal palace fc":"Crystal Palace","crystal palace":"Crystal Palace","everton fc":"Everton","everton":"Everton","fulham fc":"Fulham","fulham":"Fulham","hull city afc":"Hull","hull city":"Hull","hull":"Hull","ipswich town fc":"Ipswich","ipswich town":"Ipswich","ipswich":"Ipswich","leeds united fc":"Leeds","leeds united":"Leeds","leeds":"Leeds","liverpool fc":"Liverpool","liverpool":"Liverpool","manchester city fc":"Man City","manchester city":"Man City","man city":"Man City","manchester united fc":"Man Utd","manchester united":"Man Utd","man utd":"Man Utd","newcastle united fc":"Newcastle","newcastle united":"Newcastle","newcastle":"Newcastle","nottingham forest fc":"Nott'm Forest","nottingham forest":"Nott'm Forest","nott'm forest":"Nott'm Forest","sunderland afc":"Sunderland","sunderland":"Sunderland","tottenham hotspur fc":"Spurs","tottenham hotspur":"Spurs","tottenham":"Spurs","spurs":"Spurs"};
+function norm(n){let s=String(n).toLowerCase().replace(/\s+/g," ").trim();return ALIASES[s]||s}
+function clubName(n){return CLUBS[norm(n)]||CLUBS[n]||n}
+function esc(v){return String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+function badge(n){let w=clubName(n).replace(/[^A-Za-z ]/g,"").split(" ").filter(Boolean);return (w.length===1?w[0].slice(0,3):w.map(x=>x[0]).join("")).slice(0,3).toUpperCase()}
+function scoresFor(rows){const actual=new Map(rows.map(s=>[norm(s.team),Number(s.position)]));return Object.entries(APP.players).map(([name,preds])=>{let details=preds.map(p=>({team:p.team,predicted:Number(p.position),actual:actual.get(norm(p.team))??null,difference:actual.has(norm(p.team))?Math.abs(Number(p.position)-actual.get(norm(p.team))):null}));return{name,rows:details,score:details.reduce((a,r)=>a+(r.difference??0),0)}}).sort((a,b)=>a.score-b.score||a.name.localeCompare(b.name))}
+function rankList(scores){let last=null,rank=0;return scores.map((p,i)=>{if(p.score!==last){rank=i+1;last=p.score}return {...p,rank}})}
+function previousScores(){if(!APP.history.length)return null;return scoresFor(APP.history[APP.history.length-1].standings)}
+function movement(name,current,prior){if(!prior)return null;let a=rankList(current).find(x=>x.name===name)?.rank,b=rankList(prior).find(x=>x.name===name)?.rank;return a==null||b==null?null:b-a}
+function medal(r){return r===1?"🥇":r===2?"🥈":r===3?"🥉":""}
+function renderLeaderboardRows(current,prior){return current.map(p=>{let m=movement(p.name,current,prior),move=m===null?"—":m>0?`↑ ${m}`:m<0?`↓ ${Math.abs(m)}`:"—";return `<div class="rank-row"><div class="rank-no">${medal(p.rank)||p.rank}</div><div class="rank-player">${esc(p.name)}</div><div class="rank-score">${p.score}</div><div class="movement ${m===null?"flat":m>0?"up":m<0?"down":"flat"}">${move}</div></div>`}).join("")}
+function currentInsight(current){let leader=current[0],gap=current[current.length-1].score-leader.score;let best={name:"",team:"",diff:-1},worst={name:"",team:"",diff:-1};current.forEach(p=>p.rows.forEach(r=>{if((r.difference??0)>best.diff)best={name:p.name,team:r.team,diff:r.difference};}));let zero={name:"",count:-1};current.forEach(p=>{let c=p.rows.filter(r=>r.difference===0).length;if(c>zero.count)zero={name:p.name,count:c}});return{leader,gap,best,zero}}
+function historyChart(){
+ if(APP.history.length<2)return `<div class="empty-history"><div><strong>The race hasn't started yet.</strong>As the table changes, JIGSAW will build the season's score history here.</div></div>`;
+ const snapshots=APP.history.slice(-12), all=rankList(scoresFor(APP.standings)).map(p=>p.name), series={}; all.forEach(n=>series[n]=[]);
+ snapshots.forEach(s=>{let r=rankList(scoresFor(s.standings));r.forEach(p=>series[p.name].push(p.score))});
+ const W=900,H=220,P=28, max=Math.max(...Object.values(series).flat()), min=Math.min(...Object.values(series).flat()), range=Math.max(1,max-min);
+ const names=Object.keys(series), points=(vals)=>vals.map((v,i)=>`${P+i*(W-P*2)/Math.max(1,snapshots.length-1)},${H-P-(v-min)/(range)*(H-P*2)}`).join(" ");
+ const paths=names.map((n,i)=>`<polyline class="chart-line" style="stroke:${["#55e2a0","#69a8ff","#f5cb62","#ff7388"][i%4]}" points="${points(series[n])}"></polyline>`).join("");
+ const legend=names.map((n,i)=>`<span style="font-size:10px;color:${["#55e2a0","#69a8ff","#f5cb62","#ff7388"][i%4]};font-weight:900;margin-right:12px">${esc(n)}</span>`).join("");
+ return `<div class="chart-wrap"><svg class="chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"><line x1="${P}" y1="${H-P}" x2="${W-P}" y2="${H-P}" stroke="rgba(255,255,255,.09)"/>${paths}<text x="${P}" y="${H-5}" class="chart-label">lower is better</text></svg></div><div>${legend}</div>`;
 }
-function clubName(name){ return CLUBS[norm(name)] || CLUBS[name] || name; }
-function esc(v){return String(v).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));}
-function badge(name){
-  const words=clubName(name).replace(/[^A-Za-z ]/g,"").split(" ").filter(Boolean);
-  return (words.length===1?words[0].slice(0,3):words.map(w=>w[0]).join("")).slice(0,3).toUpperCase();
+function renderDashboard(){
+ const current=rankList(scoresFor(APP.standings)),prior=previousScores(),ins=currentInsight(current),leader=ins.leader;
+ const movementText=movement(leader.name,current,prior); const leadMove=movementText===null?"No previous update":movementText>0?`↑ ${movementText} place${movementText===1?"":"s"}`:movementText<0?`↓ ${Math.abs(movementText)} place${Math.abs(movementText)===1?"":"s"}`:"— No movement";
+ document.querySelector("#dashboard").innerHTML=`
+ <div class="section-head"><div><h2>The JIGSAW table</h2><p>Lower score wins. The standings update automatically as the Premier League changes.</p></div><span class="lock">🔒 Predictions locked</span></div>
+ <div class="dashboard-grid">
+   <div class="card leader-card"><div class="leader-kicker">Current leader</div><div class="leader-name">${esc(leader.name)}</div><div class="leader-score">${leader.score}<span>points</span></div><div class="leader-sub">${leadMove} · ${APP.preSeason?"Pre-season position":"Current position"} 1</div></div>
+   <div class="card rank-list">${renderLeaderboardRows(current,prior)}</div>
+ </div>
+ <div class="insight-grid">
+   <div class="card insight"><div class="insight-label">Gap to fourth</div><div class="insight-value">${ins.gap} points</div><div class="insight-note">${esc(current[current.length-1].name)} currently sits ${ins.gap} behind the leader.</div></div>
+   <div class="card insight"><div class="insight-label">Biggest miss</div><div class="insight-value">${ins.best.diff} places</div><div class="insight-note">${esc(ins.best.name)} has ${esc(clubName(ins.best.team))} furthest from their prediction.</div></div>
+   <div class="card insight"><div class="insight-label">Most nailed</div><div class="insight-value">${esc(ins.zero.name)}</div><div class="insight-note">${ins.zero.count} of 20 clubs currently sit exactly where predicted.</div></div>
+ </div>
+ <div class="card history-card"><div class="section-head"><div><h2>Score history</h2><p>Lower lines are better. History is recorded whenever the actual table changes.</p></div></div>${historyChart()}</div>
+ <div class="callout"><strong>How JIGSAW works</strong><p>For each club, the penalty is the absolute difference between predicted and actual position. Add all 20 penalties together. Lowest total wins.</p></div>`;
 }
-function scoresFor(standings){
-  const actual=new Map(standings.map(s=>[norm(s.team),Number(s.position)]));
-  return Object.entries(APP.players).map(([name,preds])=>{
-    const rows=preds.map(p=>({team:p.team,predicted:Number(p.position),actual:actual.get(norm(p.team)) ?? null,difference:actual.has(norm(p.team))?Math.abs(Number(p.position)-actual.get(norm(p.team))):null}));
-    return {name,rows,score:rows.reduce((a,r)=>a+(r.difference??0),0)};
-  }).sort((a,b)=>a.score-b.score||a.name.localeCompare(b.name));
-}
-function rankList(scores){
-  let lastScore=null,lastRank=0;
-  return scores.map((p,i)=>{if(p.score!==lastScore){lastRank=i+1;lastScore=p.score}return {...p,rank:lastRank};});
-}
-function fingerprint(rows){return rows.map(s=>`${s.position}:${norm(s.team)}:${s.points}:${s.goalDifference}:${s.played}`).join("|");}
-function previousScores(){
-  if(!APP.history.length) return null;
-  const prior=APP.history[APP.history.length-1];
-  return scoresFor(prior.standings);
-}
-function movement(name,current,prior){
-  if(!prior) return null;
-  const a=rankList(current).find(x=>x.name===name)?.rank;
-  const b=rankList(prior).find(x=>x.name===name)?.rank;
-  return a==null||b==null?null:b-a;
-}
-function medal(rank){return rank===1?"🥇":rank===2?"🥈":rank===3?"🥉":"";}
-
-function renderLeaderboard(){
-  const current=rankList(scoresFor(APP.standings));
-  const prior=previousScores();
-  const cards=current.map(p=>{
-    const m=movement(p.name,current,prior);
-    let move=m===null?`No previous update`:(m>0?`↑ ${m} place${m===1?"":"s"}`:m<0?`↓ ${Math.abs(m)} place${Math.abs(m)===1?"":"s"}`:"— No movement");
-    const cls=m===null?"flat":m>0?"up":m<0?"down":"flat";
-    return `<div class="card player-card">
-      <div class="rankline"><span>${medal(p.rank)} ${p.rank}${p.rank===1?"st":p.rank===2?"nd":p.rank===3?"rd":"th"}</span><span>${p.score} pts</span></div>
-      <div class="player-name">${esc(p.name)}</div>
-      <div class="score">${p.score}</div><div class="score-label">current penalty points</div>
-      <div class="movement ${cls}">${move}</div>
-    </div>`;
-  }).join("");
-  const best=current[0], worst=current[current.length-1];
-  document.querySelector("#leaderboard").innerHTML=`
-    <div class="section-head"><div><h2>Live leaderboard</h2><p>Lower score is better. Every place you miss costs one point.</p></div><span class="lock">🔒 Predictions locked</span></div>
-    <div class="grid">${cards}</div>
-    <div class="hero-stat">
-      <div class="card stat-card"><div class="stat-value">${esc(best.name)}</div><div class="stat-label">Current leader · ${best.score} points</div></div>
-      <div class="card stat-card"><div class="stat-value">${esc(worst.name)}</div><div class="stat-label">Current fourth · ${worst.score} points</div></div>
-    </div>
-    <div class="callout"><strong>How JIGSAW works</strong><p>For every club, the score is the absolute difference between the predicted finishing position and the current actual position. The 20 club differences are added together.</p></div>`;
-}
-
-function tableHtml(rows){
-  return `<div class="table-wrap"><table><thead><tr><th>Pos</th><th>Club</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody>
-  ${rows.map(s=>`<tr><td class="pos">${s.position}</td><td class="club"><span class="club-mark">${esc(badge(s.team))}</span>${esc(clubName(s.team))}</td><td>${s.played??0}</td><td>${s.won??0}</td><td>${s.drawn??0}</td><td>${s.lost??0}</td><td>${(s.goalDifference??0)>0?"+":""}${s.goalDifference??0}</td><td class="points">${s.points??0}</td></tr>`).join("")}
-  </tbody></table></div>`;
-}
-function renderTable(){
-  document.querySelector("#table").innerHTML=`
-    <div class="section-head"><div><h2>Premier League table</h2><p>2026/27 · Matchday ${APP.matchday||0}</p></div></div>
-    ${APP.preSeason?`<div class="notice">The season has not started. JIGSAW is using the official Premier League alphabetical reset order for 2026/27 rather than relying on a third-party provider's pre-season ordering.</div>`:""}
-    ${tableHtml(APP.standings)}`;
-}
-
-function renderPredictions(){
-  const list=rankList(scoresFor(APP.standings));
-  document.querySelector("#predictions").innerHTML=`
-    <div class="section-head"><div><h2>Predictions</h2><p>See exactly where each prediction is currently winning or losing points.</p></div>
-    <select class="player-select" id="playerSelect">${list.map(p=>`<option value="${esc(p.name)}">${esc(p.name)}</option>`).join("")}</select></div>
-    <div id="playerDetail"></div>`;
-  document.querySelector("#playerSelect").addEventListener("change",renderPlayerDetail);
-  renderPlayerDetail();
-}
-function renderPlayerDetail(){
-  const name=document.querySelector("#playerSelect").value;
-  const p=rankList(scoresFor(APP.standings)).find(x=>x.name===name);
-  document.querySelector("#playerDetail").innerHTML=`
-    <div class="card detail-card"><div><div class="muted" style="font-size:11px;text-transform:uppercase;letter-spacing:.1em">Current score</div><div class="detail-score">${p.score}</div><div class="detail-meta">penalty points · ${p.rank}${p.rank===1?"st":p.rank===2?"nd":p.rank===3?"rd":"th"} place</div></div><span class="lock">🔒 Prediction locked</span></div>
-    <div class="table-wrap"><table><thead><tr><th>Club</th><th>Prediction</th><th>Actual</th><th>Difference</th></tr></thead><tbody>
-    ${p.rows.map(r=>{const cls=r.difference===0?"good":r.difference>=5?"bad":"zero";return `<tr><td class="club">${esc(clubName(r.team))}</td><td>${r.predicted}</td><td>${r.actual??"—"}</td><td class="${cls}">${r.difference??"—"}</td></tr>`}).join("")}
-    </tbody></table></div>`;
-}
-
-async function load(){
-  const [pred,stand,history]=await Promise.all([
-    fetch("data/predictions.json",{cache:"no-store"}).then(r=>r.json()),
-    fetch("data/standings.json",{cache:"no-store"}).then(r=>r.json()),
-    fetch("data/history.json",{cache:"no-store"}).then(r=>r.json())
-  ]);
-  APP.players=pred.players; APP.season=pred.season; APP.standings=stand.standings; APP.history=history.snapshots||[];
-  APP.updated=stand.lastUpdated; APP.matchday=stand.currentMatchday||0; APP.preSeason=!!stand.preSeason;
-  document.querySelector("#updatedText").textContent=APP.updated?`Updated ${new Date(APP.updated).toLocaleString("en-GB",{dateStyle:"medium",timeStyle:"short"})}`:"Waiting for update";
-  document.querySelector("#statusText").textContent=APP.preSeason?"Pre-season table":"Live league table";
-  renderLeaderboard();renderTable();renderPredictions();
-}
-document.querySelectorAll(".tab").forEach(btn=>btn.addEventListener("click",()=>{
-  document.querySelectorAll(".tab").forEach(b=>b.classList.remove("active"));
-  document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
-  btn.classList.add("active");document.querySelector("#"+btn.dataset.view).classList.add("active");
-}));
-load().catch(err=>{console.error(err);document.querySelector("#leaderboard").innerHTML=`<div class="notice">The site could not load its data files. Please check the repository structure.</div>`});
+function tableHtml(rows){return `<div class="table-wrap"><table><thead><tr><th>Pos</th><th>Club</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody>${rows.map(s=>`<tr><td class="pos">${s.position}</td><td class="club"><span class="club-mark">${esc(badge(s.team))}</span>${esc(clubName(s.team))}</td><td>${s.played??0}</td><td>${s.won??0}</td><td>${s.drawn??0}</td><td>${s.lost??0}</td><td>${(s.goalDifference??0)>0?"+":""}${s.goalDifference??0}</td><td class="points">${s.points??0}</td></tr>`).join("")}</tbody></table></div>`}
+function renderTable(){document.querySelector("#table").innerHTML=`<div class="section-head"><div><h2>Premier League table</h2><p>2026/27 · Matchday ${APP.matchday||0}</p></div></div>${APP.preSeason?`<div class="notice">The season has not started. JIGSAW is using the official 2026/27 Premier League alphabetical reset order, rather than an arbitrary third-party pre-season ordering.</div>`:""}${tableHtml(APP.standings)}`}
+function renderPredictions(){let list=rankList(scoresFor(APP.standings));document.querySelector("#predictions").innerHTML=`<div class="section-head"><div><h2>Predictions</h2><p>See exactly where each prediction is currently winning or losing points.</p></div><select class="player-select" id="playerSelect">${list.map(p=>`<option value="${esc(p.name)}">${esc(p.name)}</option>`).join("")}</select></div><div id="playerDetail"></div>`;document.querySelector("#playerSelect").addEventListener("change",renderPlayerDetail);renderPlayerDetail()}
+function renderPlayerDetail(){let name=document.querySelector("#playerSelect").value,p=rankList(scoresFor(APP.standings)).find(x=>x.name===name);document.querySelector("#playerDetail").innerHTML=`<div class="card detail-card"><div><div class="muted" style="font-size:11px;text-transform:uppercase;letter-spacing:.1em">Current score</div><div class="detail-score">${p.score}</div><div class="detail-meta">penalty points · ${p.rank}${p.rank===1?"st":p.rank===2?"nd":p.rank===3?"rd":"th"} place</div></div><span class="lock">🔒 Prediction locked</span></div><div class="table-wrap"><table><thead><tr><th>Club</th><th>Prediction</th><th>Actual</th><th>Difference</th></tr></thead><tbody>${p.rows.map(r=>{let c=r.difference===0?"good":r.difference>=5?"bad":"zero";return `<tr><td class="club">${esc(clubName(r.team))}</td><td>${r.predicted}</td><td>${r.actual??"—"}</td><td class="${c}">${r.difference??"—"}</td></tr>`}).join("")}</tbody></table></div>`}
+async function load(){try{const [pred,stand,history]=await Promise.all([fetch("data/predictions.json",{cache:"no-store"}).then(r=>r.json()),fetch("data/standings.json",{cache:"no-store"}).then(r=>r.json()),fetch("data/history.json",{cache:"no-store"}).then(r=>r.json())]);APP.players=pred.players;APP.season=pred.season;APP.standings=stand.standings;APP.history=history.snapshots||[];APP.updated=stand.lastUpdated;APP.matchday=stand.currentMatchday||0;APP.preSeason=!!stand.preSeason;document.querySelector("#updatedText").textContent=APP.updated?`Updated ${new Date(APP.updated).toLocaleString("en-GB",{dateStyle:"medium",timeStyle:"short"})}`:"Waiting for update";document.querySelector("#statusText").textContent=APP.preSeason?"Pre-season table":"Live league table";document.querySelector("#competitionStatus").textContent=APP.preSeason?"PRE-SEASON":"LIVE COMPETITION";renderDashboard();renderTable();renderPredictions()}catch(e){console.error(e);document.querySelector("#dashboard").innerHTML=`<div class="notice">The site could not load its data files. Please check the repository structure.</div>`}}
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));document.querySelectorAll(".view").forEach(x=>x.classList.remove("active"));b.classList.add("active");document.querySelector("#"+b.dataset.view).classList.add("active")}));
+load();
