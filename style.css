@@ -47,3 +47,8 @@ footer{display:flex;justify-content:space-between;gap:20px;color:#6e7d92;font-si
 .legend-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
 @media(max-width:850px){.race-grid{grid-template-columns:1fr}.story-grid{grid-template-columns:1fr}}
 @media(max-width:520px){.form-row{grid-template-columns:28px 1fr 65px 70px}.race-card{padding:16px}.chart-wrap{height:210px}}
+
+/* Version 5 prediction result colours */
+td.exact{color:#e5bd4f;font-weight:900}
+td.positive{color:#55e2a0;font-weight:900}
+td.negative{color:#ff7388;font-weight:900}
