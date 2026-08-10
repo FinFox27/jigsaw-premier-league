@@ -5,5 +5,27 @@
   "scoring": {
     "onePointPerPlaceDifference": true,
     "lowerScoreWins": true
-  }
+  },
+  "preSeasonOrder": [
+    "Arsenal",
+    "Aston Villa",
+    "Bournemouth",
+    "Brentford",
+    "Brighton",
+    "Chelsea",
+    "Coventry",
+    "Crystal Palace",
+    "Everton",
+    "Fulham",
+    "Hull",
+    "Ipswich",
+    "Leeds",
+    "Liverpool",
+    "Man City",
+    "Man Utd",
+    "Newcastle",
+    "Nott'm Forest",
+    "Sunderland",
+    "Spurs"
+  ]
 }
