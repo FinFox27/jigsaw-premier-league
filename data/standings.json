@@ -1,7 +1,7 @@
 {
   "season": "2026/27",
   "source": "football-data.org",
-  "lastUpdated": "2026-08-12T20:23:40.152831Z",
+  "lastUpdated": "2026-08-12T21:35:00.208889Z",
   "currentMatchday": 1,
   "preSeason": true,
   "standings": [
@@ -15,7 +15,8 @@
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0,
-      "points": 0
+      "points": 0,
+      "crest": "https://crests.football-data.org/57.png"
     },
     {
       "position": 2,
@@ -27,7 +28,8 @@
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0,
-      "points": 0
+      "points": 0,
+      "crest": "https://crests.football-data.org/58.png"
     },
     {
       "position": 3,
@@ -39,7 +41,8 @@
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0,
-      "points": 0
+      "points": 0,
+      "crest": "https://crests.football-data.org/bournemouth.png"
     },
     {
       "position": 4,
@@ -51,7 +54,8 @@
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0,
-      "points": 0
+      "points": 0,
+      "crest": "https://crests.football-data.org/402.png"
     },
     {
       "position": 5,
@@ -63,7 +67,8 @@
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0,
-      "points": 0
+      "points": 0,
+      "crest": "https://crests.football-data.org/397.png"
     },
     {
       "position": 6,
@@ -75,7 +80,8 @@
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0,
-      "points": 0
+      "points": 0,
+      "crest": "https://crests.football-data.org/61.png"
     },
     {
       "position": 7,
@@ -87,7 +93,8 @@
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0,
-      "points": 0
+      "points": 0,
+      "crest": "https://crests.football-data.org/1076.png"
     },
     {
       "position": 8,
@@ -99,7 +106,8 @@
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0,
-      "points": 0
+      "points": 0,
+      "crest": "https://crests.football-data.org/354.png"
     },
     {
       "position": 9,
@@ -111,7 +119,8 @@
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0,
-      "points": 0
+      "points": 0,
+      "crest": "https://crests.football-data.org/62.png"
     },
     {
       "position": 10,
@@ -123,7 +132,8 @@
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0,
-      "points": 0
+      "points": 0,
+      "crest": "https://crests.football-data.org/63.png"
     },
     {
       "position": 11,
@@ -135,7 +145,8 @@
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0,
-      "points": 0
+      "points": 0,
+      "crest": "https://crests.football-data.org/322.png"
     },
     {
       "position": 12,
@@ -147,7 +158,8 @@
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0,
-      "points": 0
+      "points": 0,
+      "crest": "https://crests.football-data.org/349.png"
     },
     {
       "position": 13,
@@ -159,7 +171,8 @@
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0,
-      "points": 0
+      "points": 0,
+      "crest": "https://crests.football-data.org/341.png"
     },
     {
       "position": 14,
@@ -171,7 +184,8 @@
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0,
-      "points": 0
+      "points": 0,
+      "crest": "https://crests.football-data.org/64.png"
     },
     {
       "position": 15,
@@ -183,7 +197,8 @@
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0,
-      "points": 0
+      "points": 0,
+      "crest": "https://crests.football-data.org/65.png"
     },
     {
       "position": 16,
@@ -195,7 +210,8 @@
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0,
-      "points": 0
+      "points": 0,
+      "crest": "https://crests.football-data.org/66.png"
     },
     {
       "position": 17,
@@ -207,7 +223,8 @@
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0,
-      "points": 0
+      "points": 0,
+      "crest": "https://crests.football-data.org/67.png"
     },
     {
       "position": 18,
@@ -219,7 +236,8 @@
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0,
-      "points": 0
+      "points": 0,
+      "crest": "https://crests.football-data.org/351.png"
     },
     {
       "position": 19,
@@ -231,7 +249,8 @@
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0,
-      "points": 0
+      "points": 0,
+      "crest": "https://crests.football-data.org/71.png"
     },
     {
       "position": 20,
@@ -243,7 +262,8 @@
       "goalsFor": 0,
       "goalsAgainst": 0,
       "goalDifference": 0,
-      "points": 0
+      "points": 0,
+      "crest": "https://crests.football-data.org/73.png"
     }
   ]
 }
