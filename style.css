@@ -52,3 +52,13 @@ footer{display:flex;justify-content:space-between;gap:20px;color:#6e7d92;font-si
 td.exact{color:#e5bd4f;font-weight:900}
 td.positive{color:#55e2a0;font-weight:900}
 td.negative{color:#ff7388;font-weight:900}
+/* JIGSAW Version 7 — club badges & JIGSAW Intel */
+.club-badge{width:28px;height:28px;display:inline-flex;align-items:center;justify-content:center;margin-right:10px;flex:0 0 28px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid var(--line);overflow:hidden;font-size:8px;font-weight:950;color:var(--muted)}
+.club-badge.small{width:22px;height:22px;flex-basis:22px;margin-right:8px;font-size:7px}
+.club-badge img{width:100%;height:100%;object-fit:contain;padding:3px}.club-badge span{display:none}.club-badge.badge-fallback span{display:block}
+.banter-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.banter-feature{grid-column:1/-1;padding:26px;background:linear-gradient(135deg,rgba(85,226,160,.10),rgba(105,168,255,.06));border-color:rgba(85,226,160,.18)}
+.banter-feature h3{font-size:28px;line-height:1.15;margin:8px 0 6px}.banter-feature p{font-size:13px;color:var(--muted);margin:0;line-height:1.6}
+.banter-card{padding:20px}.banter-kicker{font-size:10px;color:var(--muted);font-weight:950;letter-spacing:.13em;text-transform:uppercase}.banter-card h3{font-size:18px;margin:8px 0 5px}.banter-card p{font-size:11px;color:var(--muted);line-height:1.5;margin:0}
+.banter-empty{padding:44px 28px;text-align:center;border:1px dashed var(--line);border-radius:18px;background:rgba(255,255,255,.02)}.banter-icon{font-size:28px;margin-bottom:10px}.banter-empty strong{display:block;font-size:16px}.banter-empty p{max-width:600px;margin:7px auto 0;color:var(--muted);font-size:12px;line-height:1.6}
+@media(max-width:650px){.banter-grid{grid-template-columns:1fr}.banter-feature{grid-column:auto}.banter-feature h3{font-size:23px}}
