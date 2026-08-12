@@ -24,7 +24,9 @@ jobs:
           from datetime import datetime, timezone
 
           TOKEN = os.environ["FOOTBALL_DATA_TOKEN"]
-          URL = "https://api.football-data.org/v4/competitions/PL/standings?season=2026"
+          config = json.load(open("data/config.json", encoding="utf-8"))
+          competition_season = str(config.get("currentSeason", "2026/27")).split("/")[0]
+          URL = f"https://api.football-data.org/v4/competitions/PL/standings?season={competition_season}"
 
           req = urllib.request.Request(URL, headers={"X-Auth-Token": TOKEN})
           with urllib.request.urlopen(req, timeout=30) as response:
@@ -67,10 +69,11 @@ jobs:
                   "goalsFor": int(x.get("goalsFor", 0)),
                   "goalsAgainst": int(x.get("goalsAgainst", 0)),
                   "goalDifference": int(x.get("goalDifference", 0)),
-                  "points": int(x.get("points", 0))
+                  "points": int(x.get("points", 0)),
+                  "crest": x.get("team", {}).get("crest")
               })
 
-          expected = set(json.load(open("data/config.json", encoding="utf-8"))["preSeasonOrder"])
+          expected = set(config.get("preSeasonOrder", []))
           actual = {r["team"] for r in rows}
           if actual != expected:
               raise RuntimeError("The API returned an unexpected set of clubs: " + str(sorted(actual ^ expected)))
@@ -78,13 +81,13 @@ jobs:
           # Before the first competitive match, the official PL reset order is alphabetical.
           pre_season = all(r["played"] == 0 and r["points"] == 0 for r in rows)
           if pre_season:
-              order = json.load(open("data/config.json", encoding="utf-8"))["preSeasonOrder"]
+              order = config.get("preSeasonOrder", [])
               lookup = {r["team"]: r for r in rows}
               rows = [{**lookup[t], "position": i} for i, t in enumerate(order, 1)]
 
           now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
           output = {
-              "season": "2026/27",
+              "season": config.get("currentSeason", season.get("startDate", "2026-08-01")[:4] + "/" + str(int(season.get("startDate", "2026-08-01")[:4]) + 1)),
               "source": "football-data.org",
               "lastUpdated": now,
               "currentMatchday": season.get("currentMatchday") or 0,
@@ -108,7 +111,9 @@ jobs:
               json.dump(output, f, indent=2)
 
           history_path = "data/history.json"
-          history = json.load(open(history_path, encoding="utf-8")) if os.path.exists(history_path) else {"season":"2026/27","snapshots":[]}
+          history = json.load(open(history_path, encoding="utf-8")) if os.path.exists(history_path) else {"season":output["season"],"snapshots":[]}
+          if history.get("season") != output["season"]:
+              history = {"season":output["season"],"snapshots":[]}
 
           if old_fp != new_fp:
               history["snapshots"].append({
