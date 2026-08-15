@@ -62,3 +62,19 @@ td.negative{color:#ff7388;font-weight:900}
 .banter-card{padding:20px}.banter-kicker{font-size:10px;color:var(--muted);font-weight:950;letter-spacing:.13em;text-transform:uppercase}.banter-card h3{font-size:18px;margin:8px 0 5px}.banter-card p{font-size:11px;color:var(--muted);line-height:1.5;margin:0}
 .banter-empty{padding:44px 28px;text-align:center;border:1px dashed var(--line);border-radius:18px;background:rgba(255,255,255,.02)}.banter-icon{font-size:28px;margin-bottom:10px}.banter-empty strong{display:block;font-size:16px}.banter-empty p{max-width:600px;margin:7px auto 0;color:var(--muted);font-size:12px;line-height:1.6}
 @media(max-width:650px){.banter-grid{grid-template-columns:1fr}.banter-feature{grid-column:auto}.banter-feature h3{font-size:23px}}
+
+/* JIGSAW V10 */
+.tabs{overflow-x:auto;white-space:nowrap;padding-bottom:4px}
+.tabs .tab{font-size:11px}
+.crest{width:28px;height:28px;object-fit:contain;display:block}
+.club-mark{width:32px;height:32px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;margin-right:9px;background:rgba(255,255,255,.04);vertical-align:middle;overflow:hidden}
+.club-fallback{font-size:9px;font-weight:950;align-items:center;justify-content:center}
+.crest+.club-fallback{display:none}
+.finale-banner{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px;margin:0 0 14px;border-radius:18px;background:linear-gradient(135deg,rgba(229,189,79,.15),rgba(85,226,160,.06));border:1px solid rgba(229,189,79,.3)}
+.finale-banner h2{margin:7px 0 0;font-size:26px}.finale-banner p{margin:6px 0 0;color:var(--muted);font-size:12px}.finale-score{font-size:48px;font-weight:950;color:#e5bd4f;text-align:center}.finale-score small{display:block;font-size:9px;letter-spacing:.15em;color:var(--muted)}
+.chart-placeholder{padding:34px;text-align:center;border:1px dashed var(--line);border-radius:16px;margin-bottom:16px}.chart-placeholder strong{display:block;font-size:16px}.chart-placeholder span{display:block;margin-top:6px;color:var(--muted);font-size:11px}
+.intel-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.intel-warm{padding:28px}.intel-warm h2{margin:7px 0;font-size:23px}.intel-warm p{margin:0;color:var(--muted);line-height:1.6;font-size:12px}
+.club-hero{display:flex;gap:18px;align-items:center;padding:22px;margin-bottom:12px}.club-hero .crest{width:60px;height:60px}.club-hero .club-mark{width:72px;height:72px;border-radius:16px}.club-hero h2{margin:2px 0 0}
+.story-title{line-height:1.2}
+@media(max-width:800px){.intel-grid{grid-template-columns:1fr}.finale-banner{align-items:flex-start}.finale-score{font-size:36px}}
+@media(max-width:520px){.finale-banner{flex-direction:column}.tabs .tab{font-size:10px}.crest{width:24px;height:24px}}
