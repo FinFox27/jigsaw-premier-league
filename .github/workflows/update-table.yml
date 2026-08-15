@@ -2,7 +2,7 @@ name: Update Premier League table
 
 on:
   schedule:
-    - cron: "15 */3 * * *"
+    - cron: "15 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -12,129 +12,150 @@ jobs:
   update:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v5
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Fetch and validate current Premier League standings
         env:
           FOOTBALL_DATA_TOKEN: ${{ secrets.FOOTBALL_DATA_TOKEN }}
         run: |
           python - <<'PY'
-          import json, os, urllib.request, hashlib
-          from datetime import datetime, timezone
+          import json, os, urllib.request, datetime, pathlib, re
 
-          TOKEN = os.environ["FOOTBALL_DATA_TOKEN"]
-          config = json.load(open("data/config.json", encoding="utf-8"))
-          competition_season = str(config.get("currentSeason", "2026/27")).split("/")[0]
-          URL = f"https://api.football-data.org/v4/competitions/PL/standings?season={competition_season}"
+          root=pathlib.Path(".")
+          data=root/"data"
+          data.mkdir(exist_ok=True)
 
-          req = urllib.request.Request(URL, headers={"X-Auth-Token": TOKEN})
-          with urllib.request.urlopen(req, timeout=30) as response:
-              payload = json.load(response)
+          def load(name, default):
+              p=data/name
+              if not p.exists(): return default
+              try: return json.loads(p.read_text())
+              except: return default
 
-          season = payload.get("season", {})
-          total = next((s for s in payload.get("standings", []) if s.get("type") == "TOTAL"), None)
-          if not total:
-              raise RuntimeError("No TOTAL standings returned by football-data.org.")
+          cfg=load("config.json",{})
+          pred=load("predictions.json",{"season":"2026/27","players":{}})
+          old=load("standings.json",{})
+          hist=load("history.json",{"snapshots":[]})
+          archive=load("season-archive.json",{"seasons":{}})
 
-          raw = total.get("table", [])
-          if len(raw) != 20:
-              raise RuntimeError(f"Expected 20 clubs, received {len(raw)}.")
+          now=datetime.datetime.now(datetime.timezone.utc)
+          # New competition year begins on 1 August.  The current season is the
+          # season whose first calendar year is the current year from 1 August,
+          # otherwise previous year.
+          start_year=now.year if now.month>=8 else now.year-1
+          expected=f"{start_year}/{str(start_year+1)[-2:]}"
 
-          # JIGSAW's canonical names.  External API names are normalised here.
-          aliases = {
-              "Arsenal FC":"Arsenal","Aston Villa FC":"Aston Villa","AFC Bournemouth":"Bournemouth",
-              "Brentford FC":"Brentford","Brighton & Hove Albion FC":"Brighton","Chelsea FC":"Chelsea",
-              "Coventry City FC":"Coventry","Crystal Palace FC":"Crystal Palace","Everton FC":"Everton",
-              "Fulham FC":"Fulham","Hull City AFC":"Hull","Ipswich Town FC":"Ipswich","Leeds United FC":"Leeds",
-              "Liverpool FC":"Liverpool","Manchester City FC":"Man City","Manchester United FC":"Man Utd",
-              "Newcastle United FC":"Newcastle","Nottingham Forest FC":"Nott'm Forest",
-              "Sunderland AFC":"Sunderland","Tottenham Hotspur FC":"Spurs"
-          }
+          def season_start_year(s):
+              m=re.match(r"^(\d{4})",str(s))
+              return int(m.group(1)) if m else start_year
 
-          def canon(name):
-              if name in aliases:
-                  return aliases[name]
-              return name.replace(" FC","").replace(" AFC","")
+          current_pred_year=season_start_year(pred.get("season",expected))
+          rollover=(now.month>=8 and current_pred_year < start_year) or (now.month<8 and current_pred_year < start_year)
 
-          rows = []
-          for x in raw:
+          token=os.environ["FOOTBALL_DATA_TOKEN"]
+          req=urllib.request.Request(
+              "https://api.football-data.org/v4/competitions/PL/standings",
+              headers={"X-Auth-Token":token,"User-Agent":"JIGSAW-Prediction-Challenge"}
+          )
+          with urllib.request.urlopen(req,timeout=30) as r:
+              payload=json.load(r)
+
+          total=[]
+          for block in payload.get("standings",[]):
+              if block.get("type")=="TOTAL":
+                  total=block.get("table",[])
+                  break
+          if len(total)!=20:
+              raise SystemExit(f"Expected 20 Premier League clubs, received {len(total)}")
+
+          rows=[]
+          for r in total:
+              team=r.get("team",{})
               rows.append({
-                  "position": int(x["position"]),
-                  "team": canon(x["team"]["name"]),
-                  "played": int(x.get("playedGames", 0)),
-                  "won": int(x.get("won", 0)),
-                  "drawn": int(x.get("draw", 0)),
-                  "lost": int(x.get("lost", 0)),
-                  "goalsFor": int(x.get("goalsFor", 0)),
-                  "goalsAgainst": int(x.get("goalsAgainst", 0)),
-                  "goalDifference": int(x.get("goalDifference", 0)),
-                  "points": int(x.get("points", 0)),
-                  "crest": x.get("team", {}).get("crest")
+                  "position":r.get("position"),
+                  "team":team.get("name"),
+                  "played":r.get("played",0),
+                  "won":r.get("won",0),
+                  "drawn":r.get("draw",0),
+                  "lost":r.get("lost",0),
+                  "points":r.get("points",0),
+                  "goalDifference":r.get("goalDifference",0),
+                  "crest":team.get("crest") or team.get("crestUrl")
               })
 
-          expected = set(config.get("preSeasonOrder", []))
-          actual = {r["team"] for r in rows}
-          if actual != expected:
-              raise RuntimeError("The API returned an unexpected set of clubs: " + str(sorted(actual ^ expected)))
+          played=max([int(x.get("played",0) or 0) for x in rows], default=0)
+          actual_season=payload.get("season",{})
+          api_start=str(actual_season.get("startDate",""))[:10]
+          api_end=str(actual_season.get("endDate",""))[:10]
 
-          # Before the first competitive match, the official PL reset order is alphabetical.
-          pre_season = all(r["played"] == 0 and r["points"] == 0 for r in rows)
-          if pre_season:
-              order = config.get("preSeasonOrder", [])
-              lookup = {r["team"]: r for r in rows}
-              rows = [{**lookup[t], "position": i} for i, t in enumerate(order, 1)]
+          # If the API is already serving the new season around the 1 August
+          # boundary, start a clean JIGSAW season.  Otherwise retain the current
+          # prediction season.
+          new_season=pred.get("season",expected)
+          if api_start:
+              y=int(api_start[:4])
+              new_season=f"{y}/{str(y+1)[-2:]}"
 
-          now = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
-          output = {
-              "season": config.get("currentSeason", season.get("startDate", "2026-08-01")[:4] + "/" + str(int(season.get("startDate", "2026-08-01")[:4]) + 1)),
-              "source": "football-data.org",
-              "lastUpdated": now,
-              "currentMatchday": season.get("currentMatchday") or 0,
-              "preSeason": pre_season,
-              "standings": rows
+          if new_season != pred.get("season"):
+              # Archive only a genuinely completed prior season.
+              prior=pred.get("season")
+              prior_rows=old.get("standings",[])
+              if prior and max([int(x.get("played",0) or 0) for x in prior_rows] or [0])>=38:
+                  from copy import deepcopy
+                  def final_scores(rows):
+                      actual={str(x.get("team")):int(x.get("position")) for x in rows}
+                      out=[]
+                      for name, preds in pred.get("players",{}).items():
+                          total=0
+                          for p in preds:
+                              a=actual.get(str(p.get("team")))
+                              if a is not None: total += abs(int(p.get("position"))-a)
+                          out.append({"name":name,"score":total})
+                      return sorted(out,key=lambda x:(x["score"],x["name"]))
+                  fr=final_scores(prior_rows)
+                  archive.setdefault("seasons",{})[prior]={
+                      "season":prior,
+                      "winner":fr[0]["name"] if fr else None,
+                      "finalScore":fr[0]["score"] if fr else None,
+                      "completedAt":old.get("lastUpdated") or now.isoformat(),
+                      "results":fr
+                  }
+                  (data/"season-archive.json").write_text(json.dumps(archive,indent=2))
+
+              # Start the new season from the predictions file supplied by the
+              # organiser.  Do not invent predictions.
+              pred["season"]=new_season
+              hist={"snapshots":[]}
+              (data/"history.json").write_text(json.dumps(hist,indent=2))
+
+          pre=(played==0)
+          snap={"timestamp":now.isoformat(),"standings":rows}
+          snaps=hist.get("snapshots",[])
+          if not snaps or json.dumps(snaps[-1].get("standings",[]),sort_keys=True)!=json.dumps(rows,sort_keys=True):
+              snaps.append(snap)
+          hist["snapshots"]=snaps
+          hist["season"]=pred.get("season",new_season)
+          hist["lastUpdated"]=now.isoformat()
+          (data/"history.json").write_text(json.dumps(hist,indent=2))
+
+          out={
+              "season":pred.get("season",new_season),
+              "currentMatchday":actual_season.get("currentMatchday") or 0,
+              "preSeason":pre,
+              "finale":played>=38,
+              "gamesPlayed":played,
+              "lastUpdated":now.isoformat(),
+              "standings":rows
           }
-
-          # Validate positions and uniqueness before writing anything.
-          positions = [r["position"] for r in rows]
-          if positions != list(range(1, 21)):
-              raise RuntimeError("Invalid positions after normalisation.")
-
-          def fp(data):
-              return hashlib.sha256(json.dumps(data, sort_keys=True).encode()).hexdigest()
-
-          old = json.load(open("data/standings.json", encoding="utf-8"))
-          old_fp = fp(old["standings"])
-          new_fp = fp(rows)
-
-          with open("data/standings.json", "w", encoding="utf-8") as f:
-              json.dump(output, f, indent=2)
-
-          history_path = "data/history.json"
-          history = json.load(open(history_path, encoding="utf-8")) if os.path.exists(history_path) else {"season":output["season"],"snapshots":[]}
-          if history.get("season") != output["season"]:
-              history = {"season":output["season"],"snapshots":[]}
-
-          if old_fp != new_fp:
-              history["snapshots"].append({
-                  "timestamp": now,
-                  "matchday": output["currentMatchday"],
-                  "preSeason": pre_season,
-                  "standings": rows
-              })
-              # Keep the repository light: only retain the last 120 distinct table states.
-              history["snapshots"] = history["snapshots"][-120:]
-
-          with open(history_path, "w", encoding="utf-8") as f:
-              json.dump(history, f, indent=2)
-
-          print("Updated:", new_fp != old_fp, "| pre-season:", pre_season, "| matchday:", output["currentMatchday"])
+          (data/"standings.json").write_text(json.dumps(out,indent=2))
+          (data/"predictions.json").write_text(json.dumps(pred,indent=2))
+          print(f"JIGSAW updated: {out['season']} | {played}/38 games per team | {len(rows)} clubs")
           PY
 
-      - name: Commit changed data
+      - name: Commit updated data
         run: |
-          git config user.name "JIGSAW table updater"
-          git config user.email "actions@users.noreply.github.com"
-          git add data/standings.json data/history.json
-          git diff --cached --quiet || git commit -m "Update JIGSAW league data"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "Update JIGSAW Premier League data"
           git push
