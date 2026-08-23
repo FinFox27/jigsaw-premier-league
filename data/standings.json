@@ -4,7 +4,7 @@
   "preSeason": true,
   "finale": false,
   "gamesPlayed": 0,
-  "lastUpdated": "2026-08-23T15:56:22.724851+00:00",
+  "lastUpdated": "2026-08-23T17:02:15.270279+00:00",
   "standings": [
     {
       "position": 1,
@@ -84,18 +84,7 @@
       "crest": "https://crests.football-data.org/65.png"
     },
     {
-      "position": 8,
-      "team": "Leeds United FC",
-      "played": 0,
-      "won": 1,
-      "drawn": 0,
-      "lost": 0,
-      "points": 3,
-      "goalDifference": 1,
-      "crest": "https://crests.football-data.org/341.png"
-    },
-    {
-      "position": 8,
+      "position": 6,
       "team": "Newcastle United FC",
       "played": 0,
       "won": 1,
@@ -104,6 +93,17 @@
       "points": 3,
       "goalDifference": 1,
       "crest": "https://crests.football-data.org/67.png"
+    },
+    {
+      "position": 9,
+      "team": "Leeds United FC",
+      "played": 0,
+      "won": 1,
+      "drawn": 0,
+      "lost": 0,
+      "points": 3,
+      "goalDifference": 1,
+      "crest": "https://crests.football-data.org/341.png"
     },
     {
       "position": 10,
@@ -140,17 +140,6 @@
     },
     {
       "position": 12,
-      "team": "Sunderland AFC",
-      "played": 0,
-      "won": 0,
-      "drawn": 0,
-      "lost": 1,
-      "points": 0,
-      "goalDifference": -1,
-      "crest": "https://crests.football-data.org/71.png"
-    },
-    {
-      "position": 14,
       "team": "Liverpool FC",
       "played": 0,
       "won": 0,
@@ -161,7 +150,18 @@
       "crest": "https://crests.football-data.org/64.png"
     },
     {
-      "position": 14,
+      "position": 12,
+      "team": "Sunderland AFC",
+      "played": 0,
+      "won": 0,
+      "drawn": 0,
+      "lost": 1,
+      "points": 0,
+      "goalDifference": -1,
+      "crest": "https://crests.football-data.org/71.png"
+    },
+    {
+      "position": 15,
       "team": "Nottingham Forest FC",
       "played": 0,
       "won": 0,
