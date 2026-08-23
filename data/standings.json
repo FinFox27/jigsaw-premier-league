@@ -4,7 +4,7 @@
   "preSeason": true,
   "finale": false,
   "gamesPlayed": 0,
-  "lastUpdated": "2026-08-23T17:02:15.270279+00:00",
+  "lastUpdated": "2026-08-23T17:53:17.533102+00:00",
   "standings": [
     {
       "position": 1,
@@ -84,18 +84,7 @@
       "crest": "https://crests.football-data.org/65.png"
     },
     {
-      "position": 6,
-      "team": "Newcastle United FC",
-      "played": 0,
-      "won": 1,
-      "drawn": 0,
-      "lost": 0,
-      "points": 3,
-      "goalDifference": 1,
-      "crest": "https://crests.football-data.org/67.png"
-    },
-    {
-      "position": 9,
+      "position": 8,
       "team": "Leeds United FC",
       "played": 0,
       "won": 1,
@@ -106,7 +95,29 @@
       "crest": "https://crests.football-data.org/341.png"
     },
     {
-      "position": 10,
+      "position": 9,
+      "team": "Liverpool FC",
+      "played": 0,
+      "won": 0,
+      "drawn": 1,
+      "lost": 0,
+      "points": 1,
+      "goalDifference": 0,
+      "crest": "https://crests.football-data.org/64.png"
+    },
+    {
+      "position": 9,
+      "team": "Newcastle United FC",
+      "played": 0,
+      "won": 0,
+      "drawn": 1,
+      "lost": 0,
+      "points": 1,
+      "goalDifference": 0,
+      "crest": "https://crests.football-data.org/67.png"
+    },
+    {
+      "position": 11,
       "team": "Chelsea FC",
       "played": 0,
       "won": 0,
@@ -117,7 +128,7 @@
       "crest": "https://crests.football-data.org/61.png"
     },
     {
-      "position": 10,
+      "position": 11,
       "team": "Fulham FC",
       "played": 0,
       "won": 0,
@@ -128,7 +139,7 @@
       "crest": "https://crests.football-data.org/63.png"
     },
     {
-      "position": 12,
+      "position": 13,
       "team": "AFC Bournemouth",
       "played": 0,
       "won": 0,
@@ -139,18 +150,7 @@
       "crest": "https://crests.football-data.org/bournemouth.png"
     },
     {
-      "position": 12,
-      "team": "Liverpool FC",
-      "played": 0,
-      "won": 0,
-      "drawn": 0,
-      "lost": 1,
-      "points": 0,
-      "goalDifference": -1,
-      "crest": "https://crests.football-data.org/64.png"
-    },
-    {
-      "position": 12,
+      "position": 13,
       "team": "Sunderland AFC",
       "played": 0,
       "won": 0,
