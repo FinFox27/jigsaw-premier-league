@@ -4,7 +4,7 @@
   "preSeason": true,
   "finale": false,
   "gamesPlayed": 0,
-  "lastUpdated": "2026-08-29T16:22:53.136495+00:00",
+  "lastUpdated": "2026-08-29T17:22:37.926394+00:00",
   "standings": [
     {
       "position": 1,
@@ -121,9 +121,9 @@
       "team": "Newcastle United FC",
       "played": 0,
       "won": 0,
-      "drawn": 1,
+      "drawn": 2,
       "lost": 0,
-      "points": 1,
+      "points": 2,
       "goalDifference": 0,
       "crest": "https://crests.football-data.org/67.png"
     },
@@ -151,6 +151,17 @@
     },
     {
       "position": 14,
+      "team": "Tottenham Hotspur FC",
+      "played": 0,
+      "won": 0,
+      "drawn": 1,
+      "lost": 1,
+      "points": 1,
+      "goalDifference": -3,
+      "crest": "https://crests.football-data.org/73.png"
+    },
+    {
+      "position": 15,
       "team": "Fulham FC",
       "played": 0,
       "won": 0,
@@ -161,7 +172,7 @@
       "crest": "https://crests.football-data.org/63.png"
     },
     {
-      "position": 15,
+      "position": 16,
       "team": "Sunderland AFC",
       "played": 0,
       "won": 0,
@@ -172,7 +183,7 @@
       "crest": "https://crests.football-data.org/71.png"
     },
     {
-      "position": 16,
+      "position": 17,
       "team": "Manchester United FC",
       "played": 0,
       "won": 0,
@@ -181,17 +192,6 @@
       "points": 0,
       "goalDifference": -2,
       "crest": "https://crests.football-data.org/66.png"
-    },
-    {
-      "position": 17,
-      "team": "Tottenham Hotspur FC",
-      "played": 0,
-      "won": 0,
-      "drawn": 0,
-      "lost": 1,
-      "points": 0,
-      "goalDifference": -3,
-      "crest": "https://crests.football-data.org/73.png"
     },
     {
       "position": 18,
