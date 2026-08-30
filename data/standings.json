@@ -4,7 +4,7 @@
   "preSeason": true,
   "finale": false,
   "gamesPlayed": 0,
-  "lastUpdated": "2026-08-30T13:22:35.887459+00:00",
+  "lastUpdated": "2026-08-30T14:22:37.386501+00:00",
   "standings": [
     {
       "position": 1,
@@ -19,6 +19,17 @@
     },
     {
       "position": 2,
+      "team": "Brentford FC",
+      "played": 0,
+      "won": 2,
+      "drawn": 0,
+      "lost": 0,
+      "points": 6,
+      "goalDifference": 4,
+      "crest": "https://crests.football-data.org/402.png"
+    },
+    {
+      "position": 3,
       "team": "Chelsea FC",
       "played": 0,
       "won": 2,
@@ -29,7 +40,7 @@
       "crest": "https://crests.football-data.org/61.png"
     },
     {
-      "position": 3,
+      "position": 4,
       "team": "Hull City AFC",
       "played": 0,
       "won": 2,
@@ -38,17 +49,6 @@
       "points": 6,
       "goalDifference": 3,
       "crest": "https://crests.football-data.org/322.png"
-    },
-    {
-      "position": 4,
-      "team": "Brentford FC",
-      "played": 0,
-      "won": 1,
-      "drawn": 1,
-      "lost": 0,
-      "points": 4,
-      "goalDifference": 3,
-      "crest": "https://crests.football-data.org/402.png"
     },
     {
       "position": 5,
@@ -74,17 +74,6 @@
     },
     {
       "position": 7,
-      "team": "Leeds United FC",
-      "played": 0,
-      "won": 1,
-      "drawn": 1,
-      "lost": 0,
-      "points": 4,
-      "goalDifference": 1,
-      "crest": "https://crests.football-data.org/341.png"
-    },
-    {
-      "position": 8,
       "team": "Arsenal FC",
       "played": 0,
       "won": 1,
@@ -95,7 +84,7 @@
       "crest": "https://crests.football-data.org/57.png"
     },
     {
-      "position": 9,
+      "position": 8,
       "team": "Brighton & Hove Albion FC",
       "played": 0,
       "won": 1,
@@ -106,7 +95,7 @@
       "crest": "https://crests.football-data.org/397.png"
     },
     {
-      "position": 10,
+      "position": 9,
       "team": "Ipswich Town FC",
       "played": 0,
       "won": 1,
@@ -115,6 +104,17 @@
       "points": 3,
       "goalDifference": 1,
       "crest": "https://crests.football-data.org/349.png"
+    },
+    {
+      "position": 10,
+      "team": "Leeds United FC",
+      "played": 0,
+      "won": 1,
+      "drawn": 0,
+      "lost": 1,
+      "points": 3,
+      "goalDifference": 0,
+      "crest": "https://crests.football-data.org/341.png"
     },
     {
       "position": 11,
