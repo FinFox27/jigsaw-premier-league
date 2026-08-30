@@ -4,7 +4,7 @@
   "preSeason": true,
   "finale": false,
   "gamesPlayed": 0,
-  "lastUpdated": "2026-08-30T17:22:50.367423+00:00",
+  "lastUpdated": "2026-08-30T18:22:41.914963+00:00",
   "standings": [
     {
       "position": 1,
@@ -113,7 +113,7 @@
       "drawn": 0,
       "lost": 1,
       "points": 3,
-      "goalDifference": 2,
+      "goalDifference": 1,
       "crest": "https://crests.football-data.org/66.png"
     },
     {
@@ -135,7 +135,7 @@
       "drawn": 0,
       "lost": 1,
       "points": 3,
-      "goalDifference": -3,
+      "goalDifference": -2,
       "crest": "https://crests.football-data.org/349.png"
     },
     {
