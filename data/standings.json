@@ -4,7 +4,7 @@
   "preSeason": true,
   "finale": false,
   "gamesPlayed": 0,
-  "lastUpdated": "2026-08-30T14:22:37.386501+00:00",
+  "lastUpdated": "2026-08-30T15:23:08.662167+00:00",
   "standings": [
     {
       "position": 1,
@@ -19,14 +19,14 @@
     },
     {
       "position": 2,
-      "team": "Brentford FC",
+      "team": "Hull City AFC",
       "played": 0,
       "won": 2,
       "drawn": 0,
       "lost": 0,
       "points": 6,
-      "goalDifference": 4,
-      "crest": "https://crests.football-data.org/402.png"
+      "goalDifference": 3,
+      "crest": "https://crests.football-data.org/322.png"
     },
     {
       "position": 3,
@@ -36,19 +36,19 @@
       "drawn": 0,
       "lost": 0,
       "points": 6,
-      "goalDifference": 3,
+      "goalDifference": 2,
       "crest": "https://crests.football-data.org/61.png"
     },
     {
       "position": 4,
-      "team": "Hull City AFC",
+      "team": "Brentford FC",
       "played": 0,
-      "won": 2,
-      "drawn": 0,
+      "won": 1,
+      "drawn": 1,
       "lost": 0,
-      "points": 6,
+      "points": 4,
       "goalDifference": 3,
-      "crest": "https://crests.football-data.org/322.png"
+      "crest": "https://crests.football-data.org/402.png"
     },
     {
       "position": 5,
@@ -74,6 +74,28 @@
     },
     {
       "position": 7,
+      "team": "Leeds United FC",
+      "played": 0,
+      "won": 1,
+      "drawn": 1,
+      "lost": 0,
+      "points": 4,
+      "goalDifference": 1,
+      "crest": "https://crests.football-data.org/341.png"
+    },
+    {
+      "position": 8,
+      "team": "Brighton & Hove Albion FC",
+      "played": 0,
+      "won": 1,
+      "drawn": 0,
+      "lost": 1,
+      "points": 3,
+      "goalDifference": 3,
+      "crest": "https://crests.football-data.org/397.png"
+    },
+    {
+      "position": 9,
       "team": "Arsenal FC",
       "played": 0,
       "won": 1,
@@ -84,18 +106,7 @@
       "crest": "https://crests.football-data.org/57.png"
     },
     {
-      "position": 8,
-      "team": "Brighton & Hove Albion FC",
-      "played": 0,
-      "won": 1,
-      "drawn": 0,
-      "lost": 1,
-      "points": 3,
-      "goalDifference": 2,
-      "crest": "https://crests.football-data.org/397.png"
-    },
-    {
-      "position": 9,
+      "position": 10,
       "team": "Ipswich Town FC",
       "played": 0,
       "won": 1,
@@ -106,18 +117,18 @@
       "crest": "https://crests.football-data.org/349.png"
     },
     {
-      "position": 10,
-      "team": "Leeds United FC",
+      "position": 11,
+      "team": "Sunderland AFC",
       "played": 0,
       "won": 1,
       "drawn": 0,
       "lost": 1,
       "points": 3,
       "goalDifference": 0,
-      "crest": "https://crests.football-data.org/341.png"
+      "crest": "https://crests.football-data.org/71.png"
     },
     {
-      "position": 11,
+      "position": 12,
       "team": "Liverpool FC",
       "played": 0,
       "won": 0,
@@ -128,7 +139,7 @@
       "crest": "https://crests.football-data.org/64.png"
     },
     {
-      "position": 12,
+      "position": 13,
       "team": "AFC Bournemouth",
       "played": 0,
       "won": 0,
@@ -139,18 +150,7 @@
       "crest": "https://crests.football-data.org/bournemouth.png"
     },
     {
-      "position": 12,
-      "team": "Fulham FC",
-      "played": 0,
-      "won": 0,
-      "drawn": 1,
-      "lost": 1,
-      "points": 1,
-      "goalDifference": -1,
-      "crest": "https://crests.football-data.org/63.png"
-    },
-    {
-      "position": 12,
+      "position": 13,
       "team": "Nottingham Forest FC",
       "played": 0,
       "won": 0,
@@ -162,14 +162,14 @@
     },
     {
       "position": 15,
-      "team": "Sunderland AFC",
+      "team": "Fulham FC",
       "played": 0,
       "won": 0,
-      "drawn": 1,
-      "lost": 1,
-      "points": 1,
-      "goalDifference": -1,
-      "crest": "https://crests.football-data.org/71.png"
+      "drawn": 0,
+      "lost": 2,
+      "points": 0,
+      "goalDifference": -2,
+      "crest": "https://crests.football-data.org/63.png"
     },
     {
       "position": 16,
