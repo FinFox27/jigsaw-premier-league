@@ -4,7 +4,7 @@
   "preSeason": true,
   "finale": false,
   "gamesPlayed": 0,
-  "lastUpdated": "2026-08-31T18:22:51.757710+00:00",
+  "lastUpdated": "2026-08-31T19:22:45.797627+00:00",
   "standings": [
     {
       "position": 1,
@@ -52,6 +52,17 @@
     },
     {
       "position": 5,
+      "team": "Arsenal FC",
+      "played": 0,
+      "won": 1,
+      "drawn": 1,
+      "lost": 0,
+      "points": 4,
+      "goalDifference": 3,
+      "crest": "https://crests.football-data.org/57.png"
+    },
+    {
+      "position": 6,
       "team": "Newcastle United FC",
       "played": 0,
       "won": 1,
@@ -62,7 +73,7 @@
       "crest": "https://crests.football-data.org/67.png"
     },
     {
-      "position": 6,
+      "position": 7,
       "team": "Everton FC",
       "played": 0,
       "won": 1,
@@ -73,7 +84,7 @@
       "crest": "https://crests.football-data.org/62.png"
     },
     {
-      "position": 7,
+      "position": 8,
       "team": "Leeds United FC",
       "played": 0,
       "won": 1,
@@ -84,7 +95,7 @@
       "crest": "https://crests.football-data.org/341.png"
     },
     {
-      "position": 8,
+      "position": 9,
       "team": "Brighton & Hove Albion FC",
       "played": 0,
       "won": 1,
@@ -93,17 +104,6 @@
       "points": 3,
       "goalDifference": 3,
       "crest": "https://crests.football-data.org/397.png"
-    },
-    {
-      "position": 9,
-      "team": "Arsenal FC",
-      "played": 0,
-      "won": 1,
-      "drawn": 0,
-      "lost": 0,
-      "points": 3,
-      "goalDifference": 3,
-      "crest": "https://crests.football-data.org/57.png"
     },
     {
       "position": 10,
@@ -173,6 +173,17 @@
     },
     {
       "position": 16,
+      "team": "Aston Villa FC",
+      "played": 0,
+      "won": 0,
+      "drawn": 1,
+      "lost": 1,
+      "points": 1,
+      "goalDifference": -4,
+      "crest": "https://crests.football-data.org/58.png"
+    },
+    {
+      "position": 17,
       "team": "Fulham FC",
       "played": 0,
       "won": 0,
@@ -183,18 +194,7 @@
       "crest": "https://crests.football-data.org/63.png"
     },
     {
-      "position": 17,
-      "team": "Aston Villa FC",
-      "played": 0,
-      "won": 0,
-      "drawn": 0,
-      "lost": 1,
-      "points": 0,
-      "goalDifference": -4,
-      "crest": "https://crests.football-data.org/58.png"
-    },
-    {
-      "position": 17,
+      "position": 18,
       "team": "Coventry City FC",
       "played": 0,
       "won": 0,
