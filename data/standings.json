@@ -4,7 +4,7 @@
   "preSeason": true,
   "finale": false,
   "gamesPlayed": 0,
-  "lastUpdated": "2026-09-06T16:27:33.567121+00:00",
+  "lastUpdated": "2026-09-06T17:25:07.068514+00:00",
   "standings": [
     {
       "position": 1,
@@ -21,11 +21,11 @@
       "position": 2,
       "team": "Arsenal FC",
       "played": 0,
-      "won": 2,
-      "drawn": 1,
+      "won": 3,
+      "drawn": 0,
       "lost": 0,
-      "points": 7,
-      "goalDifference": 4,
+      "points": 9,
+      "goalDifference": 5,
       "crest": "https://crests.football-data.org/57.png"
     },
     {
@@ -44,10 +44,10 @@
       "team": "Chelsea FC",
       "played": 0,
       "won": 2,
-      "drawn": 1,
-      "lost": 0,
-      "points": 7,
-      "goalDifference": 2,
+      "drawn": 0,
+      "lost": 1,
+      "points": 6,
+      "goalDifference": 1,
       "crest": "https://crests.football-data.org/61.png"
     },
     {
