@@ -4,7 +4,7 @@
   "preSeason": true,
   "finale": false,
   "gamesPlayed": 0,
-  "lastUpdated": "2026-09-06T14:26:24.326664+00:00",
+  "lastUpdated": "2026-09-06T15:26:31.829986+00:00",
   "standings": [
     {
       "position": 1,
@@ -52,17 +52,6 @@
     },
     {
       "position": 5,
-      "team": "Manchester United FC",
-      "played": 0,
-      "won": 2,
-      "drawn": 0,
-      "lost": 1,
-      "points": 6,
-      "goalDifference": 2,
-      "crest": "https://crests.football-data.org/66.png"
-    },
-    {
-      "position": 6,
       "team": "Brentford FC",
       "played": 0,
       "won": 1,
@@ -73,7 +62,7 @@
       "crest": "https://crests.football-data.org/402.png"
     },
     {
-      "position": 7,
+      "position": 6,
       "team": "Liverpool FC",
       "played": 0,
       "won": 1,
@@ -84,7 +73,7 @@
       "crest": "https://crests.football-data.org/64.png"
     },
     {
-      "position": 7,
+      "position": 6,
       "team": "Newcastle United FC",
       "played": 0,
       "won": 1,
@@ -93,6 +82,17 @@
       "points": 5,
       "goalDifference": 2,
       "crest": "https://crests.football-data.org/67.png"
+    },
+    {
+      "position": 8,
+      "team": "Everton FC",
+      "played": 0,
+      "won": 1,
+      "drawn": 2,
+      "lost": 0,
+      "points": 5,
+      "goalDifference": 2,
+      "crest": "https://crests.football-data.org/62.png"
     },
     {
       "position": 9,
@@ -118,14 +118,14 @@
     },
     {
       "position": 11,
-      "team": "Everton FC",
+      "team": "Manchester United FC",
       "played": 0,
       "won": 1,
       "drawn": 1,
       "lost": 1,
       "points": 4,
       "goalDifference": 1,
-      "crest": "https://crests.football-data.org/62.png"
+      "crest": "https://crests.football-data.org/66.png"
     },
     {
       "position": 12,
