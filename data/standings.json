@@ -4,7 +4,7 @@
   "preSeason": true,
   "finale": false,
   "gamesPlayed": 0,
-  "lastUpdated": "2026-09-06T15:26:31.829986+00:00",
+  "lastUpdated": "2026-09-06T16:27:33.567121+00:00",
   "standings": [
     {
       "position": 1,
@@ -19,6 +19,17 @@
     },
     {
       "position": 2,
+      "team": "Arsenal FC",
+      "played": 0,
+      "won": 2,
+      "drawn": 1,
+      "lost": 0,
+      "points": 7,
+      "goalDifference": 4,
+      "crest": "https://crests.football-data.org/57.png"
+    },
+    {
+      "position": 3,
       "team": "Hull City AFC",
       "played": 0,
       "won": 2,
@@ -29,24 +40,13 @@
       "crest": "https://crests.football-data.org/322.png"
     },
     {
-      "position": 3,
-      "team": "Arsenal FC",
-      "played": 0,
-      "won": 2,
-      "drawn": 0,
-      "lost": 0,
-      "points": 6,
-      "goalDifference": 4,
-      "crest": "https://crests.football-data.org/57.png"
-    },
-    {
       "position": 4,
       "team": "Chelsea FC",
       "played": 0,
       "won": 2,
-      "drawn": 0,
+      "drawn": 1,
       "lost": 0,
-      "points": 6,
+      "points": 7,
       "goalDifference": 2,
       "crest": "https://crests.football-data.org/61.png"
     },
