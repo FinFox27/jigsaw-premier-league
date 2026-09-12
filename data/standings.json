@@ -4,17 +4,17 @@
   "preSeason": true,
   "finale": false,
   "gamesPlayed": 0,
-  "lastUpdated": "2026-09-12T19:26:03.385635+00:00",
+  "lastUpdated": "2026-09-12T22:19:55.929743+00:00",
   "standings": [
     {
       "position": 1,
       "team": "Arsenal FC",
       "played": 0,
-      "won": 3,
-      "drawn": 1,
+      "won": 4,
+      "drawn": 0,
       "lost": 0,
-      "points": 10,
-      "goalDifference": 5,
+      "points": 12,
+      "goalDifference": 7,
       "crest": "https://crests.football-data.org/57.png"
     },
     {
@@ -129,17 +129,6 @@
     },
     {
       "position": 12,
-      "team": "Sunderland AFC",
-      "played": 0,
-      "won": 1,
-      "drawn": 2,
-      "lost": 1,
-      "points": 5,
-      "goalDifference": 0,
-      "crest": "https://crests.football-data.org/71.png"
-    },
-    {
-      "position": 13,
       "team": "Brighton & Hove Albion FC",
       "played": 0,
       "won": 1,
@@ -150,7 +139,7 @@
       "crest": "https://crests.football-data.org/397.png"
     },
     {
-      "position": 14,
+      "position": 13,
       "team": "Manchester United FC",
       "played": 0,
       "won": 1,
@@ -159,6 +148,17 @@
       "points": 4,
       "goalDifference": 1,
       "crest": "https://crests.football-data.org/66.png"
+    },
+    {
+      "position": 14,
+      "team": "Sunderland AFC",
+      "played": 0,
+      "won": 1,
+      "drawn": 1,
+      "lost": 2,
+      "points": 4,
+      "goalDifference": -2,
+      "crest": "https://crests.football-data.org/71.png"
     },
     {
       "position": 15,
