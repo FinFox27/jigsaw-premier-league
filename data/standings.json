@@ -4,7 +4,7 @@
   "preSeason": true,
   "finale": false,
   "gamesPlayed": 0,
-  "lastUpdated": "2026-10-17T09:24:33.966737+00:00",
+  "lastUpdated": "2026-10-17T13:45:16.954065+00:00",
   "standings": [
     {
       "position": 1,
@@ -41,6 +41,17 @@
     },
     {
       "position": 4,
+      "team": "Chelsea FC",
+      "played": 0,
+      "won": 4,
+      "drawn": 1,
+      "lost": 2,
+      "points": 13,
+      "goalDifference": 4,
+      "crest": "https://crests.football-data.org/61.png"
+    },
+    {
+      "position": 5,
       "team": "Brentford FC",
       "played": 0,
       "won": 2,
@@ -51,26 +62,15 @@
       "crest": "https://crests.football-data.org/402.png"
     },
     {
-      "position": 5,
+      "position": 6,
       "team": "Everton FC",
       "played": 0,
       "won": 2,
       "drawn": 4,
-      "lost": 0,
+      "lost": 1,
       "points": 10,
-      "goalDifference": 3,
+      "goalDifference": 1,
       "crest": "https://crests.football-data.org/62.png"
-    },
-    {
-      "position": 6,
-      "team": "Chelsea FC",
-      "played": 0,
-      "won": 3,
-      "drawn": 1,
-      "lost": 2,
-      "points": 10,
-      "goalDifference": 2,
-      "crest": "https://crests.football-data.org/61.png"
     },
     {
       "position": 7,
