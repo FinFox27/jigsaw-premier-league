@@ -4,7 +4,7 @@
   "preSeason": true,
   "finale": false,
   "gamesPlayed": 0,
-  "lastUpdated": "2026-10-18T14:37:40.395758+00:00",
+  "lastUpdated": "2026-10-18T18:08:12.243627+00:00",
   "standings": [
     {
       "position": 1,
@@ -19,25 +19,25 @@
     },
     {
       "position": 2,
+      "team": "Arsenal FC",
+      "played": 0,
+      "won": 6,
+      "drawn": 0,
+      "lost": 1,
+      "points": 18,
+      "goalDifference": 6,
+      "crest": "https://crests.football-data.org/57.png"
+    },
+    {
+      "position": 3,
       "team": "Brighton & Hove Albion FC",
       "played": 0,
       "won": 5,
       "drawn": 1,
       "lost": 1,
       "points": 16,
-      "goalDifference": 17,
+      "goalDifference": 18,
       "crest": "https://crests.football-data.org/397.png"
-    },
-    {
-      "position": 3,
-      "team": "Arsenal FC",
-      "played": 0,
-      "won": 5,
-      "drawn": 0,
-      "lost": 1,
-      "points": 15,
-      "goalDifference": 5,
-      "crest": "https://crests.football-data.org/57.png"
     },
     {
       "position": 4,
@@ -157,7 +157,7 @@
       "drawn": 1,
       "lost": 4,
       "points": 7,
-      "goalDifference": -7,
+      "goalDifference": -8,
       "crest": "https://crests.football-data.org/354.png"
     },
     {
@@ -199,9 +199,9 @@
       "played": 0,
       "won": 1,
       "drawn": 2,
-      "lost": 3,
+      "lost": 4,
       "points": 5,
-      "goalDifference": -3,
+      "goalDifference": -4,
       "crest": "https://crests.football-data.org/351.png"
     },
     {
