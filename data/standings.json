@@ -4,7 +4,7 @@
   "preSeason": true,
   "finale": false,
   "gamesPlayed": 0,
-  "lastUpdated": "2026-10-31T05:47:53.582774+00:00",
+  "lastUpdated": "2026-10-31T12:37:35.540541+00:00",
   "standings": [
     {
       "position": 1,
@@ -55,9 +55,9 @@
       "team": "Chelsea FC",
       "played": 0,
       "won": 4,
-      "drawn": 1,
+      "drawn": 2,
       "lost": 3,
-      "points": 13,
+      "points": 14,
       "goalDifference": 2,
       "crest": "https://crests.football-data.org/61.png"
     },
@@ -176,9 +176,9 @@
       "team": "Manchester United FC",
       "played": 0,
       "won": 1,
-      "drawn": 4,
+      "drawn": 5,
       "lost": 3,
-      "points": 7,
+      "points": 8,
       "goalDifference": -3,
       "crest": "https://crests.football-data.org/66.png"
     },
