@@ -4,7 +4,7 @@
   "preSeason": true,
   "finale": false,
   "gamesPlayed": 0,
-  "lastUpdated": "2026-11-06T17:59:31.323209+00:00",
+  "lastUpdated": "2026-11-06T23:11:46.788584+00:00",
   "standings": [
     {
       "position": 1,
@@ -52,6 +52,17 @@
     },
     {
       "position": 5,
+      "team": "Everton FC",
+      "played": 0,
+      "won": 4,
+      "drawn": 4,
+      "lost": 2,
+      "points": 16,
+      "goalDifference": 2,
+      "crest": "https://crests.football-data.org/62.png"
+    },
+    {
+      "position": 6,
       "team": "Liverpool FC",
       "played": 0,
       "won": 4,
@@ -62,7 +73,7 @@
       "crest": "https://crests.football-data.org/64.png"
     },
     {
-      "position": 6,
+      "position": 7,
       "team": "Brentford FC",
       "played": 0,
       "won": 3,
@@ -71,17 +82,6 @@
       "points": 14,
       "goalDifference": 7,
       "crest": "https://crests.football-data.org/402.png"
-    },
-    {
-      "position": 7,
-      "team": "Everton FC",
-      "played": 0,
-      "won": 3,
-      "drawn": 4,
-      "lost": 2,
-      "points": 13,
-      "goalDifference": 0,
-      "crest": "https://crests.football-data.org/62.png"
     },
     {
       "position": 8,
@@ -177,9 +177,9 @@
       "played": 0,
       "won": 3,
       "drawn": 0,
-      "lost": 6,
+      "lost": 7,
       "points": 9,
-      "goalDifference": -7,
+      "goalDifference": -9,
       "crest": "https://crests.football-data.org/1076.png"
     },
     {
