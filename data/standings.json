@@ -4,7 +4,7 @@
   "preSeason": true,
   "finale": false,
   "gamesPlayed": 0,
-  "lastUpdated": "2026-11-22T06:54:20.626546+00:00",
+  "lastUpdated": "2026-11-22T15:21:40.924127+00:00",
   "standings": [
     {
       "position": 1,
@@ -22,9 +22,9 @@
       "team": "Brighton & Hove Albion FC",
       "played": 0,
       "won": 7,
-      "drawn": 1,
+      "drawn": 2,
       "lost": 2,
-      "points": 22,
+      "points": 23,
       "goalDifference": 19,
       "crest": "https://crests.football-data.org/397.png"
     },
@@ -140,6 +140,17 @@
     },
     {
       "position": 13,
+      "team": "Hull City AFC",
+      "played": 0,
+      "won": 2,
+      "drawn": 6,
+      "lost": 3,
+      "points": 12,
+      "goalDifference": 0,
+      "crest": "https://crests.football-data.org/322.png"
+    },
+    {
+      "position": 14,
       "team": "Coventry City FC",
       "played": 0,
       "won": 4,
@@ -148,17 +159,6 @@
       "points": 12,
       "goalDifference": -8,
       "crest": "https://crests.football-data.org/1076.png"
-    },
-    {
-      "position": 14,
-      "team": "Hull City AFC",
-      "played": 0,
-      "won": 2,
-      "drawn": 5,
-      "lost": 3,
-      "points": 11,
-      "goalDifference": 0,
-      "crest": "https://crests.football-data.org/322.png"
     },
     {
       "position": 15,
